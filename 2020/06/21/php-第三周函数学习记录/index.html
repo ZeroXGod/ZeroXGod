@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>php 第三周函数学习记录 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="natsort()作用 1函数用&quot;自然排序&quot;算法对数组进行排序。键值保留它们原始的键名。 用法 1natsort(array) 测试案例 1234567891011$temp_files &#x3D; array(&quot;temp15.txt&quot;,&quot;temp10.txt&quot;,&quot;temp1.txt&quot;,&quot;temp22.tx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="php 第三周函数学习记录">
+<meta property="og:url" content="http://yoursite.com/2020/06/21/php-%E7%AC%AC%E4%B8%89%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="natsort()作用 1函数用&quot;自然排序&quot;算法对数组进行排序。键值保留它们原始的键名。 用法 1natsort(array) 测试案例 1234567891011$temp_files &#x3D; array(&quot;temp15.txt&quot;,&quot;temp10.txt&quot;,&quot;temp1.txt&quot;,&quot;temp22.tx">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-21T12:51:54.000Z">
+<meta property="article:modified_time" content="2020-06-21T12:52:43.776Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-php-第三周函数学习记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/21/php-%E7%AC%AC%E4%B8%89%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2020-06-21T12:51:54.000Z" itemprop="datePublished">2020-06-21</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      php 第三周函数学习记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="natsort"><a href="#natsort" class="headerlink" title="natsort()"></a>natsort()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数用&quot;自然排序&quot;算法对数组进行排序。键值保留它们原始的键名。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">natsort(array)</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$temp_files &#x3D; array(&quot;temp15.txt&quot;,&quot;temp10.txt&quot;,</span><br><span class="line">&quot;temp1.txt&quot;,&quot;temp22.txt&quot;,&quot;temp2.txt&quot;);</span><br><span class="line"></span><br><span class="line">sort($temp_files);</span><br><span class="line">echo &quot;Standard sorting: &quot;;</span><br><span class="line">print_r($temp_files);</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">natsort($temp_files);</span><br><span class="line">echo &quot;Natural order: &quot;;</span><br><span class="line">print_r($temp_files);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Standard sorting: </span><br><span class="line">Array ( </span><br><span class="line">    [0] &#x3D;&gt; temp1.txt </span><br><span class="line">    [1] &#x3D;&gt; temp10.txt </span><br><span class="line">    [2] &#x3D;&gt; temp15.txt </span><br><span class="line">    [3] &#x3D;&gt; temp2.txt </span><br><span class="line">    [4] &#x3D;&gt; temp22.txt </span><br><span class="line">)</span><br><span class="line">Natural order: </span><br><span class="line">Array ( </span><br><span class="line">    [0] &#x3D;&gt; temp1.txt </span><br><span class="line">    [3] &#x3D;&gt; temp2.txt</span><br><span class="line">    [1] &#x3D;&gt; temp10.txt </span><br><span class="line">    [2] &#x3D;&gt; temp15.txt</span><br><span class="line">    [4] &#x3D;&gt; temp22.txt </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="next"><a href="#next" class="headerlink" title="next()"></a>next()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数将内部指针指向数组中的下一个元素，并输出。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">next(array)</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$people &#x3D; array(&quot;Peter&quot;, &quot;Joe&quot;, &quot;Glenn&quot;, &quot;Cleveland&quot;);</span><br><span class="line"></span><br><span class="line">echo current($people) . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo next($people);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Peter</span><br><span class="line">Joe</span><br></pre></td></tr></table></figure>
+
+<h3 id="pos"><a href="#pos" class="headerlink" title="pos()"></a>pos()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">函数返回数组中的当前元素的值。</span><br><span class="line">该函数是 current() 函数的别名。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pos(array)</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$people &#x3D; array(&quot;Peter&quot;, &quot;Joe&quot;, &quot;Glenn&quot;, &quot;Cleveland&quot;);</span><br><span class="line"></span><br><span class="line">echo pos($people) . &quot;&lt;br&gt;&quot;;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Peter</span><br></pre></td></tr></table></figure>
+
+<h3 id="prev"><a href="#prev" class="headerlink" title="prev()"></a>prev()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数将内部指针指向数组中的上一个元素，并输出。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">prev(array)</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$people &#x3D; array(&quot;Peter&quot;, &quot;Joe&quot;, &quot;Glenn&quot;, &quot;Cleveland&quot;);</span><br><span class="line"></span><br><span class="line">echo current($people) . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo next($people) . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo prev($people);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Peter</span><br><span class="line">Joe</span><br><span class="line">Peter</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="range"><a href="#range" class="headerlink" title="range()"></a>range()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数创建一个包含指定范围的元素的数组。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">range(low,high,step)</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$number &#x3D; range(0,5);</span><br><span class="line">print_r ($number);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Array ( </span><br><span class="line">    [0] &#x3D;&gt; 0</span><br><span class="line">    [1] &#x3D;&gt; 1</span><br><span class="line">    [2] &#x3D;&gt; 2</span><br><span class="line">    [3] &#x3D;&gt; 3</span><br><span class="line">    [4] &#x3D;&gt; 4</span><br><span class="line">    [5] &#x3D;&gt; 5 </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="reset"><a href="#reset" class="headerlink" title="reset()"></a>reset()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数将内部指针指向数组中的第一个元素，并输出。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reset(array)</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">$people &#x3D; array(&quot;Peter&quot;, &quot;Joe&quot;, &quot;Glenn&quot;, &quot;Cleveland&quot;);</span><br><span class="line"></span><br><span class="line">echo current($people) . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo next($people) . &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">echo reset($people);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Peter</span><br><span class="line">Joe</span><br><span class="line">Peter</span><br></pre></td></tr></table></figure>
+
+<h3 id="rsort"><a href="#rsort" class="headerlink" title="rsort()"></a>rsort()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数对数值数组进行降序排序。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rsort(array,sortingtype);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$numbers&#x3D;array(4,6,2,22,11);</span><br><span class="line">rsort($numbers);</span><br><span class="line">print_r($numbers);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] &#x3D;&gt; 22</span><br><span class="line">    [1] &#x3D;&gt; 11</span><br><span class="line">    [2] &#x3D;&gt; 6</span><br><span class="line">    [3] &#x3D;&gt; 4</span><br><span class="line">    [4] &#x3D;&gt; 2</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="shuffle"><a href="#shuffle" class="headerlink" title="shuffle()"></a>shuffle()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把数组中的元素按随机顺序重新排列。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">shuffle(array)</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$my_array &#x3D; array(&quot;red&quot;,&quot;green&quot;,&quot;blue&quot;,&quot;yellow&quot;,&quot;purple&quot;);</span><br><span class="line"></span><br><span class="line">shuffle($my_array);</span><br><span class="line">print_r($my_array);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Array ( </span><br><span class="line">    [0] &#x3D;&gt; blue </span><br><span class="line">    [1] &#x3D;&gt; green </span><br><span class="line">    [2] &#x3D;&gt; yellow </span><br><span class="line">    [3] &#x3D;&gt; red</span><br><span class="line">    [4] &#x3D;&gt; purple </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="sizeof"><a href="#sizeof" class="headerlink" title="sizeof()"></a>sizeof()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">函数返回数组中元素的数目。</span><br><span class="line">是 count() 函数的别名</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sizeof(array,mode)</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$cars&#x3D;array(&quot;Volvo&quot;,&quot;BMW&quot;,&quot;Toyota&quot;);</span><br><span class="line">echo sizeof($cars);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="sort"><a href="#sort" class="headerlink" title="sort()"></a>sort()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数对数值数组进行升序排序。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sort(array,sortingtype);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$numbers&#x3D;array(4,6,2,22,11);</span><br><span class="line">sort($numbers);</span><br><span class="line">print_r($numbers);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] &#x3D;&gt; 2</span><br><span class="line">    [1] &#x3D;&gt; 4</span><br><span class="line">    [2] &#x3D;&gt; 6</span><br><span class="line">    [3] &#x3D;&gt; 11</span><br><span class="line">    [4] &#x3D;&gt; 22</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="uasort"><a href="#uasort" class="headerlink" title="uasort()"></a>uasort()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数对数值数组进行升序排序。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uasort(array,myfunction);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function my_sort($a,$b)</span><br><span class="line">&#123;</span><br><span class="line">    if ($a&#x3D;&#x3D;$b) return 0;</span><br><span class="line">    return ($a&lt;$b)?-1:1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$arr&#x3D;array(&quot;a&quot;&#x3D;&gt;4,&quot;b&quot;&#x3D;&gt;2,&quot;c&quot;&#x3D;&gt;8,d&#x3D;&gt;&quot;6&quot;);</span><br><span class="line">uasort($arr,&quot;my_sort&quot;);</span><br><span class="line">print_r($arr);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [b] &#x3D;&gt; 2</span><br><span class="line">    [a] &#x3D;&gt; 4</span><br><span class="line">    [d] &#x3D;&gt; 6</span><br><span class="line">    [c] &#x3D;&gt; 8</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="uksort"><a href="#uksort" class="headerlink" title="uksort()"></a>uksort()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数使用用户自定义的比较函数对数组按键名进行排序。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uksort(array,myfunction);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function my_sort($a,$b)</span><br><span class="line">&#123;</span><br><span class="line">if ($a&#x3D;&#x3D;$b) return 0;</span><br><span class="line">return ($a&lt;$b)?-1:1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$arr&#x3D;array(&quot;a&quot;&#x3D;&gt;4,&quot;b&quot;&#x3D;&gt;2,&quot;c&quot;&#x3D;&gt;8,d&#x3D;&gt;&quot;6&quot;);</span><br><span class="line">uksort($arr,&quot;my_sort&quot;);</span><br><span class="line">print_r($arr);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [a] &#x3D;&gt; 4</span><br><span class="line">    [b] &#x3D;&gt; 2</span><br><span class="line">    [c] &#x3D;&gt; 8</span><br><span class="line">    [d] &#x3D;&gt; 6</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="usort"><a href="#usort" class="headerlink" title="usort()"></a>usort()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用用户自定义的比较函数对数组进行排序。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">usort(array,myfunction);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function my_sort($a,$b)</span><br><span class="line">&#123;</span><br><span class="line">if ($a&#x3D;&#x3D;$b) return 0;</span><br><span class="line">return ($a&lt;$b)?-1:1;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">$a&#x3D;array(4,2,8,6);</span><br><span class="line">usort($a,&quot;my_sort&quot;);</span><br><span class="line">print_r($a);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] &#x3D;&gt; 2</span><br><span class="line">    [1] &#x3D;&gt; 4</span><br><span class="line">    [2] &#x3D;&gt; 6</span><br><span class="line">    [3] &#x3D;&gt; 8</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="cal-days-in-month"><a href="#cal-days-in-month" class="headerlink" title="cal_days_in_month()"></a>cal_days_in_month()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数针对指定的年份和历法，返回一个月中的天数</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cal_days_in_month(calendar,month,year);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$d&#x3D;cal_days_in_month(CAL_GREGORIAN,10,2005);</span><br><span class="line">echo &quot;There was $d days in October 2005&quot;;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">There was 31 days in October 2005</span><br></pre></td></tr></table></figure>
+
+<h3 id="cal-from-jd"><a href="#cal-from-jd" class="headerlink" title="cal_from_jd()"></a>cal_from_jd()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把儒略日计数转换为指定历法的日期</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cal_from_jd(jd,calendar);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$d&#x3D;unixtojd(mktime(0,0,0,6,20,2007));</span><br><span class="line">print_r(cal_from_jd($d,CAL_GREGORIAN));</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [date] &#x3D;&gt; 6&#x2F;20&#x2F;2007</span><br><span class="line">    [month] &#x3D;&gt; 6</span><br><span class="line">    [day] &#x3D;&gt; 20</span><br><span class="line">    [year] &#x3D;&gt; 2007</span><br><span class="line">    [dow] &#x3D;&gt; 3</span><br><span class="line">    [abbrevdayname] &#x3D;&gt; Wed</span><br><span class="line">    [dayname] &#x3D;&gt; Wednesday</span><br><span class="line">    [abbrevmonth] &#x3D;&gt; Jun</span><br><span class="line">    [monthname] &#x3D;&gt; June</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="cal-info"><a href="#cal-info" class="headerlink" title="cal_info()"></a>cal_info()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数返回有关指定历法的信息</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cal_info(calendar);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">print_r(cal_info(0));</span><br><span class="line">print_r(cal_info(1));</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line">Array ( </span><br><span class="line">    [months] &#x3D;&gt; Array ( </span><br><span class="line">        [1] &#x3D;&gt; January</span><br><span class="line">        [2] &#x3D;&gt; February</span><br><span class="line">        [3] &#x3D;&gt; March</span><br><span class="line">        [4] &#x3D;&gt; April </span><br><span class="line">        [5] &#x3D;&gt; May</span><br><span class="line">        [6] &#x3D;&gt; June </span><br><span class="line">        [7] &#x3D;&gt; July </span><br><span class="line">        [8] &#x3D;&gt; August</span><br><span class="line">        [9] &#x3D;&gt; September </span><br><span class="line">        [10] &#x3D;&gt; October</span><br><span class="line">        [11] &#x3D;&gt; November </span><br><span class="line">        [12] &#x3D;&gt; December </span><br><span class="line">    ) </span><br><span class="line">    [abbrevmonths] &#x3D;&gt; Array (</span><br><span class="line">        [1] &#x3D;&gt; Jan </span><br><span class="line">        [2] &#x3D;&gt; Feb </span><br><span class="line">        [3] &#x3D;&gt; Mar </span><br><span class="line">        [4] &#x3D;&gt; Apr</span><br><span class="line">        [5] &#x3D;&gt; May</span><br><span class="line">        [6] &#x3D;&gt; Jun</span><br><span class="line">        [7] &#x3D;&gt; Jul </span><br><span class="line">        [8] &#x3D;&gt; Aug</span><br><span class="line">        [9] &#x3D;&gt; Sep </span><br><span class="line">        [10] &#x3D;&gt; Oct </span><br><span class="line">        [11] &#x3D;&gt; Nov </span><br><span class="line">        [12] &#x3D;&gt; Dec </span><br><span class="line">    ) </span><br><span class="line">    [maxdaysinmonth] &#x3D;&gt; 31 </span><br><span class="line">    [calname] &#x3D;&gt; Gregorian</span><br><span class="line">    [calsymbol] &#x3D;&gt; CAL_GREGORIAN </span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">Array (</span><br><span class="line">    [months] &#x3D;&gt; Array ( </span><br><span class="line">        [1] &#x3D;&gt; January </span><br><span class="line">        [2] &#x3D;&gt; February</span><br><span class="line">        [3] &#x3D;&gt; March</span><br><span class="line">        [4] &#x3D;&gt; April</span><br><span class="line">        [5] &#x3D;&gt; May </span><br><span class="line">        [6] &#x3D;&gt; June</span><br><span class="line">        [7] &#x3D;&gt; July </span><br><span class="line">        [8] &#x3D;&gt; August</span><br><span class="line">        [9] &#x3D;&gt; September</span><br><span class="line">        [10] &#x3D;&gt; October </span><br><span class="line">        [11] &#x3D;&gt; November</span><br><span class="line">        [12] &#x3D;&gt; December</span><br><span class="line">    ) </span><br><span class="line">    [abbrevmonths] &#x3D;&gt; Array (</span><br><span class="line">        [1] &#x3D;&gt; Jan</span><br><span class="line">        [2] &#x3D;&gt; Feb</span><br><span class="line">        [3] &#x3D;&gt; Mar</span><br><span class="line">        [4] &#x3D;&gt; Apr </span><br><span class="line">        [5] &#x3D;&gt; May </span><br><span class="line">        [6] &#x3D;&gt; Jun </span><br><span class="line">        [7] &#x3D;&gt; Jul</span><br><span class="line">        [8] &#x3D;&gt; Aug</span><br><span class="line">        [9] &#x3D;&gt; Sep</span><br><span class="line">        [10] &#x3D;&gt; Oct</span><br><span class="line">        [11] &#x3D;&gt; Nov</span><br><span class="line">        [12] &#x3D;&gt; Dec </span><br><span class="line">    ) </span><br><span class="line">    [maxdaysinmonth] &#x3D;&gt; 31</span><br><span class="line">    [calname] &#x3D;&gt; Julian</span><br><span class="line">    [calsymbol] &#x3D;&gt; CAL_JULIAN </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="cal-to-jd"><a href="#cal-to-jd" class="headerlink" title="cal_to_jd()"></a>cal_to_jd()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把指定历法的日期转换为儒略日计数</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cal_to_jd(calendar,month,day,year);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$d&#x3D;cal_to_jd(CAL_GREGORIAN,6,20,2007);</span><br><span class="line">echo $d;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2454272</span><br></pre></td></tr></table></figure>
+
+<h3 id="easter-date"><a href="#easter-date" class="headerlink" title="easter_date()"></a>easter_date()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数返回指定年份的复活节午夜的 Unix 时间戳</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easter_date(year);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">echo easter_date() . &quot;&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">echo date(&quot;M-d-Y&quot;,easter_date()) . &quot;&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">echo date(&quot;M-d-Y&quot;,easter_date(1975)) . &quot;&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">echo date(&quot;M-d-Y&quot;,easter_date(1998)) . &quot;&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">echo date(&quot;M-d-Y&quot;,easter_date(2007));</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">1364702400</span><br><span class="line">Mar-31-2013</span><br><span class="line">Mar-30-1975</span><br><span class="line">Apr-12-1998</span><br><span class="line">Apr-08-2007</span><br></pre></td></tr></table></figure>
+
+<h3 id="easter-days"><a href="#easter-days" class="headerlink" title="easter_days()"></a>easter_days()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回指定年份的复活节与 3 月 21 日之间的天数</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">easter_days(year,method);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">echo &quot;Easter Day is &quot;. easter_days() . &quot; days after March 21 this year.&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">echo &quot;Easter Day was &quot;. easter_days(1990) . &quot; days after March 21 in 1990.&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">echo &quot;Easter Day was &quot;. easter_days(1342) . &quot; days after March 21 in 1342.&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">echo &quot;Easter Day will be &quot;. easter_days(2050) . &quot; days after March 21 in 2050.&quot;;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Easter Day is 10 days after March 21 this year.</span><br><span class="line">Easter Day was 25 days after March 21 in 1990.</span><br><span class="line">Easter Day was 10 days after March 21 in 1342.</span><br><span class="line">Easter Day will be 20 days after March 21 in 2050.</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="frenchtojd"><a href="#frenchtojd" class="headerlink" title="frenchtojd()"></a>frenchtojd()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把法国共和历法的日期转换为儒略日计数。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">frenchtojd(month,day,year);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;frenchtojd(3,3,14);</span><br><span class="line">echo $jd . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo jdtofrench($jd);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2380650</span><br><span class="line">3&#x2F;3&#x2F;14</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="gregoriantojd"><a href="#gregoriantojd" class="headerlink" title="gregoriantojd()"></a>gregoriantojd()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把格利高里历法的日期转换为儒略日计数</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gregoriantojd(month,day,year);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;gregoriantojd(6,20,2007);</span><br><span class="line">echo $jd . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo jdtogregorian($jd);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2454272</span><br><span class="line">6&#x2F;20&#x2F;2007</span><br></pre></td></tr></table></figure>
+
+<h3 id="jddayofweek"><a href="#jddayofweek" class="headerlink" title="jddayofweek()"></a>jddayofweek()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数返回日期在周几</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jddayofweek(jd,mode);</span><br><span class="line">mode 0 - 默认。以整数返回周的天。（0 为周日, 1 为周一... 依此类推）</span><br><span class="line">     1 - 以字符串返回周的天。（Sunday, Monday, ...）</span><br><span class="line">     2 - 以字符串返回周的天，简写形式。（Sun, Mon, ...）</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;gregoriantojd(1,13,1998);</span><br><span class="line">echo jddayofweek($jd,1);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Tuesday</span><br></pre></td></tr></table></figure>
+
+<h3 id="jdmonthname"><a href="#jdmonthname" class="headerlink" title="jdmonthname()"></a>jdmonthname()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数返回月的名称。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jdmonthname(jd,mode);</span><br><span class="line">mode 0 - 格利高里历法 - 简写形式 (Jan, Feb, Mar, ...)</span><br><span class="line">     1 - 格利高里历法 (January, February, March, ...)</span><br><span class="line">     2 - 儒略历法 - 简写形式 (Jan, Feb, Mar, ...)</span><br><span class="line">     3 - 儒略历法 (January, February, March, ...)</span><br><span class="line">     4 - 犹太历法 (Tishri, Heshvan, Kislev, ...)</span><br><span class="line">     5 - 法国共和历法 (Vendemiaire, Brumaire, Frimaire, ...)</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$jd &#x3D; gregoriantojd(1,13,1998);</span><br><span class="line">echo jdmonthname($jd,0);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Jan</span><br></pre></td></tr></table></figure>
+
+<h3 id="jdtofrench"><a href="#jdtofrench" class="headerlink" title="jdtofrench()"></a>jdtofrench()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把儒略日计数转换为法国共和历法的日期</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdtofrench(jd);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;frenchtojd(3,3,14);</span><br><span class="line">echo $jd . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo jdtofrench($jd);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2380650</span><br><span class="line">3&#x2F;3&#x2F;14</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="jdtogregorian"><a href="#jdtogregorian" class="headerlink" title="jdtogregorian()"></a>jdtogregorian()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把儒略日计数转换为格利高里历法的日期</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdtogregorian(jd);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;gregoriantojd(6,20,2007);</span><br><span class="line">echo $jd . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo jdtogregorian($jd);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2454272</span><br><span class="line">6&#x2F;20&#x2F;2007</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="jdtojewish"><a href="#jdtojewish" class="headerlink" title="jdtojewish()"></a>jdtojewish()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把儒略日计数转换为犹太历法的日期。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">jdtojewish(jd,hebrew,fl);</span><br><span class="line">hebrew      可选。当设置为 TRUE 时表示希伯来语输出格式。默认设置为 FALSE。</span><br><span class="line">fl          可选。定义希伯来语输出格式，可用的格式有</span><br><span class="line">                CAL_JEWISH_ADD_ALAFIM_GERESH</span><br><span class="line">                CAL_JEWISH_ADD_ALAFIM</span><br><span class="line">                CAL_JEWISH_ADD_GERESHAYIM</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;jdtojewish(1789430);</span><br><span class="line">echo $jd;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">7&#x2F;14&#x2F;3947</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="jdtojulian"><a href="#jdtojulian" class="headerlink" title="jdtojulian()"></a>jdtojulian()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把儒略日计数转换为儒略历法的日期。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdtojulian(jd);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;juliantojd(6,20,2007);</span><br><span class="line">echo $jd . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo jdtojulian($jd);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2454285</span><br><span class="line">6&#x2F;20&#x2F;2007</span><br></pre></td></tr></table></figure>
+
+<h3 id="jdtounix"><a href="#jdtounix" class="headerlink" title="jdtounix()"></a>jdtounix()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把儒略日计数转换为 Unix 时间戳。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jdtounix(jd);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;gregoriantojd(10,3,1975);</span><br><span class="line">echo jdtounix($jd);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">181526400</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="jewishtojd"><a href="#jewishtojd" class="headerlink" title="jewishtojd()"></a>jewishtojd()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把犹太历法的日期转换为儒略日计数。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jewishtojd(month,day,year);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;jewishtojd(6,20,2007);</span><br><span class="line">echo $jd;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">1080849</span><br></pre></td></tr></table></figure>
+
+<h3 id="juliantojd"><a href="#juliantojd" class="headerlink" title="juliantojd()"></a>juliantojd()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">把儒略历法的日期转换为儒略日计数。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">juliantojd(month,day,year);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$jd&#x3D;juliantojd(6,20,2007);</span><br><span class="line">echo $jd . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo jdtojulian($jd);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">2454285</span><br><span class="line">6&#x2F;20&#x2F;2007</span><br></pre></td></tr></table></figure>
+
+<h3 id="unixtojd"><a href="#unixtojd" class="headerlink" title="unixtojd"></a>unixtojd</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数把 Unix 时间戳转换为儒略日计数。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unixtojd(timestamp);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo unixtojd();</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2456557</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-close"><a href="#curl-close" class="headerlink" title="curl_close"></a>curl_close</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关闭一个cURL会话并且释放所有资源。cURL句柄ch 也会被释放。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void curl_close ( resource $ch )</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个新cURL资源</span><br><span class="line">$ch &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.w3cschool.cc&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 抓取URL并把它传递给浏览器</span><br><span class="line">curl_exec($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL资源，并且释放系统资源</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-copy-handle"><a href="#curl-copy-handle" class="headerlink" title="curl_copy_handle"></a>curl_copy_handle</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">复制一个cURL句柄并保持相同的选项。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resource curl_copy_handle ( resource $ch )</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个新的cURL资源</span><br><span class="line">$ch &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, &#39;http:&#x2F;&#x2F;www.example.com&#x2F;&#39;);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 复制句柄</span><br><span class="line">$ch2 &#x3D; curl_copy_handle($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 抓取URL (http:&#x2F;&#x2F;www.example.com&#x2F;) 并把它传递给浏览器</span><br><span class="line">curl_exec($ch2);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL资源，并且释放系统资源</span><br><span class="line">curl_close($ch2);</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-errno"><a href="#curl-errno" class="headerlink" title="curl_errno"></a>curl_errno</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回最后一次cURL操作的错误号。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int curl_errno ( resource $ch )</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个指向一个不存在的位置的cURL句柄</span><br><span class="line">$ch &#x3D; curl_init(&#39;http:&#x2F;&#x2F;404.php.net&#x2F;&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行</span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);</span><br><span class="line">curl_exec($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 检查是否有错误发生</span><br><span class="line">if(curl_errno($ch))</span><br><span class="line">&#123;</span><br><span class="line">    echo &#39;Curl error: &#39; . curl_error($ch);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭句柄</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="curl-error"><a href="#curl-error" class="headerlink" title="curl_error"></a>curl_error</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回一条最近一次cURL操作明确的文本的错误信息。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string curl_error ( resource $ch )</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个指向一个不存在的位置的cURL句柄</span><br><span class="line">$ch &#x3D; curl_init(&#39;http:&#x2F;&#x2F;404.php.net&#x2F;&#39;);</span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);</span><br><span class="line"></span><br><span class="line">if(curl_exec($ch) &#x3D;&#x3D;&#x3D; false)</span><br><span class="line">&#123;</span><br><span class="line">    echo &#39;Curl error: &#39; . curl_error($ch);</span><br><span class="line">&#125;</span><br><span class="line">else</span><br><span class="line">&#123;</span><br><span class="line">    echo &#39;操作完成没有任何错误&#39;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭句柄</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><blockquote>
+<p> <a href="https://www.runoob.com/php/php-ref-array.html" target="_blank" rel="noopener">《PHP 5 Array 函数 | 菜鸟教程》</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/21/php-%E7%AC%AC%E4%B8%89%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-id="ckbp2nuvr0000289uhi8rh6gm" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/14/php2week/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">php 第二周函数学习记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/21/php-%E7%AC%AC%E4%B8%89%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">php 第三周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/14/php2week/">php 第二周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/14/php1week/">php 第一周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/12/article/">hexo 博客搭建笔记</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/10/hello-world/">Hello World</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
