@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>PHP 第四周函数学习记录 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="curl_escape()作用 1对给定的字符串进行URL编码。 用法 1string curl_escape ( resource $ch , string $str ) 测试案例 12345678910111213141516&#x2F;&#x2F; 创建一个cURL句柄$ch &#x3D; curl_init();&#x2F;&#x2F; 编码GET参数$location &#x3D; cu">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP 第四周函数学习记录">
+<meta property="og:url" content="http://yoursite.com/2020/06/28/PHP-%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="curl_escape()作用 1对给定的字符串进行URL编码。 用法 1string curl_escape ( resource $ch , string $str ) 测试案例 12345678910111213141516&#x2F;&#x2F; 创建一个cURL句柄$ch &#x3D; curl_init();&#x2F;&#x2F; 编码GET参数$location &#x3D; cu">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-06-28T00:48:09.000Z">
+<meta property="article:modified_time" content="2020-06-28T00:48:55.227Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hexo</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PHP-第四周函数学习记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/06/28/PHP-%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2020-06-28T00:48:09.000Z" itemprop="datePublished">2020-06-28</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP 第四周函数学习记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="curl-escape"><a href="#curl-escape" class="headerlink" title="curl_escape()"></a>curl_escape()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">对给定的字符串进行URL编码。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string curl_escape ( resource $ch , string $str )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个cURL句柄</span><br><span class="line">$ch &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 编码GET参数</span><br><span class="line">$location &#x3D; curl_escape($ch, &#39;Hofbräuhaus &#x2F; München&#39;);</span><br><span class="line">&#x2F;&#x2F; Result: Hofbr%C3%A4uhaus%20%2F%20M%C3%BCnchen</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 比较编码后的URL</span><br><span class="line">$url &#x3D; &quot;http:&#x2F;&#x2F;example.com&#x2F;add_location.php?location&#x3D;&#123;$location&#125;&quot;;</span><br><span class="line">&#x2F;&#x2F; Result: http:&#x2F;&#x2F;example.com&#x2F;add_location.php?location&#x3D;Hofbr%C3%A4uhaus%20%2F%20M%C3%BCnchen</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 发送HTTP请求并关闭句柄</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, $url);</span><br><span class="line">curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);</span><br><span class="line">curl_exec($ch);</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-exec"><a href="#curl-exec" class="headerlink" title="curl_exec()"></a>curl_exec()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这个函数应该在初始化一个cURL会话并且全部的选项都被设置后被调用</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mixed curl_exec ( resource $ch )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个cURL资源</span><br><span class="line">$ch &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.w3cschool.cc&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 抓取URL并把它传递给浏览器</span><br><span class="line">curl_exec($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL资源，并且释放系统资源</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-file-create"><a href="#curl-file-create" class="headerlink" title="curl_file_create()"></a>curl_file_create()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">创建一个 CURLFile 对象, 用与上传文件</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">CURLFile curl_file_create ( string $filename [, string $mimetype [, string $postname ]] )</span><br><span class="line">filename     上传文件的路径</span><br><span class="line">mimetype     文件的Mimetype</span><br><span class="line">postname     文件名</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个 cURL 句柄</span><br><span class="line">$ch &#x3D; curl_init(&#39;http:&#x2F;&#x2F;example.com&#x2F;upload.php&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建一个 CURLFile 对象</span><br><span class="line">$cfile &#x3D; curl_file_create(&#39;cats.jpg&#39;,&#39;image&#x2F;jpeg&#39;,&#39;test_name&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置 POST 数据</span><br><span class="line">$data &#x3D; array(&#39;test_file&#39; &#x3D;&gt; $cfile);</span><br><span class="line">curl_setopt($ch, CURLOPT_POST,1);</span><br><span class="line">curl_setopt($ch, CURLOPT_POSTFIELDS, $data);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行句柄</span><br><span class="line">curl_exec($ch);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-getinfo"><a href="#curl-getinfo" class="headerlink" title="curl_getinfo()"></a>curl_getinfo()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">获取最后一次传输的相关信息</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">mixed curl_getinfo ( resource $ch [, int $opt &#x3D; 0 ] )</span><br><span class="line">ch 由 curl_init() 返回的 cURL 句柄。</span><br><span class="line">opt 这个参数可能是以下常量之一:</span><br><span class="line">    CURLINFO_EFFECTIVE_URL - 最后一个有效的URL地址</span><br><span class="line">    CURLINFO_HTTP_CODE - 最后一个收到的HTTP代码</span><br><span class="line">    CURLINFO_FILETIME - 远程获取文档的时间，如果无法获取，则返回值为&quot;-1&quot;</span><br><span class="line">    CURLINFO_TOTAL_TIME - 最后一次传输所消耗的时间</span><br><span class="line">    CURLINFO_NAMELOOKUP_TIME - 名称解析所消耗的时间</span><br><span class="line">    CURLINFO_CONNECT_TIME - 建立连接所消耗的时间</span><br><span class="line">    CURLINFO_PRETRANSFER_TIME - 从建立连接到准备传输所使用的时间</span><br><span class="line">    CURLINFO_STARTTRANSFER_TIME - 从建立连接到传输开始所使用的时间</span><br><span class="line">    CURLINFO_REDIRECT_TIME - 在事务传输开始前重定向所使用的时间</span><br><span class="line">    CURLINFO_SIZE_UPLOAD - 上传数据量的总值</span><br><span class="line">    CURLINFO_SIZE_DOWNLOAD - 下载数据量的总值</span><br><span class="line">    CURLINFO_SPEED_DOWNLOAD - 平均下载速度</span><br><span class="line">    CURLINFO_SPEED_UPLOAD - 平均上传速度</span><br><span class="line">    CURLINFO_HEADER_SIZE - header部分的大小</span><br><span class="line">    CURLINFO_HEADER_OUT - 发送请求的字符串</span><br><span class="line">    CURLINFO_REQUEST_SIZE - 在HTTP请求中有问题的请求的大小</span><br><span class="line">    CURLINFO_SSL_VERIFYRESULT - 通过设置CURLOPT_SSL_VERIFYPEER返回的SSL证书验证请求的结果</span><br><span class="line">    CURLINFO_CONTENT_LENGTH_DOWNLOAD - 从Content-Length: field中读取的下载内容长度</span><br><span class="line">    CURLINFO_CONTENT_LENGTH_UPLOAD - 上传内容大小的说明</span><br><span class="line">    CURLINFO_CONTENT_TYPE - 下载内容的Content-Type:值，NULL表示服务器没有发送有效的Content-Type: header</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个cURL句柄</span><br><span class="line">$ch &#x3D; curl_init(&#39;http:&#x2F;&#x2F;www.yahoo.com&#x2F;&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行</span><br><span class="line">curl_exec($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 检查是否有错误发生</span><br><span class="line">if(!curl_errno($ch))</span><br><span class="line">&#123;</span><br><span class="line"> $info &#x3D; curl_getinfo($ch);</span><br><span class="line"></span><br><span class="line"> echo &#39;Took &#39; . $info[&#39;total_time&#39;] . &#39; seconds to send a request to &#39; . $info[&#39;url&#39;];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Close handle</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="curl-init"><a href="#curl-init" class="headerlink" title="curl_init()"></a>curl_init()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">初始化一个新的会话，返回一个cURL句柄，供curl_setopt(), curl_exec()和curl_close() 函数使用。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resource curl_init ([ string $url &#x3D; NULL ] )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F; 创建一个新cURL资源</span><br><span class="line">$ch &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.runoob.com&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 抓取URL并把它传递给浏览器</span><br><span class="line">curl_exec($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL资源，并且释放系统资源</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-multi-add-handle"><a href="#curl-multi-add-handle" class="headerlink" title="curl_multi_add_handle()"></a>curl_multi_add_handle()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">向curl批处理会话中添加单独的curl句柄。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int curl_multi_add_handle ( resource $mh , resource $ch )</span><br><span class="line">mh 由 curl_multi_init() 返回的 cURL 多个句柄。</span><br><span class="line">ch 由 curl_init() 返回的 cURL 句柄。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一对cURL资源</span><br><span class="line">$ch1 &#x3D; curl_init();</span><br><span class="line">$ch2 &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch1, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.w3cschool.cc&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch1, CURLOPT_HEADER, 0);</span><br><span class="line">curl_setopt($ch2, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.php.net&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch2, CURLOPT_HEADER, 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建批处理cURL句柄</span><br><span class="line">$mh &#x3D; curl_multi_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 增加2个句柄</span><br><span class="line">curl_multi_add_handle($mh,$ch1);</span><br><span class="line">curl_multi_add_handle($mh,$ch2);</span><br><span class="line"></span><br><span class="line">$running&#x3D;null;</span><br><span class="line">&#x2F;&#x2F; 执行批处理句柄</span><br><span class="line">do &#123;</span><br><span class="line">    curl_multi_exec($mh,$running);</span><br><span class="line">&#125; while($running &gt; 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭全部句柄</span><br><span class="line">curl_multi_remove_handle($mh, $ch1);</span><br><span class="line">curl_multi_remove_handle($mh, $ch2);</span><br><span class="line">curl_multi_close($mh);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-multi-close"><a href="#curl-multi-close" class="headerlink" title="curl_multi_close()"></a>curl_multi_close()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关闭一组cURL句柄</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void curl_multi_close ( resource $mh )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一对cURL资源</span><br><span class="line">$ch1 &#x3D; curl_init();</span><br><span class="line">$ch2 &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch1, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.example.com&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch1, CURLOPT_HEADER, 0);</span><br><span class="line">curl_setopt($ch2, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.php.net&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch2, CURLOPT_HEADER, 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建批处理cURL句柄</span><br><span class="line">$mh &#x3D; curl_multi_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 增加2个句柄</span><br><span class="line">curl_multi_add_handle($mh,$ch1);</span><br><span class="line">curl_multi_add_handle($mh,$ch2);</span><br><span class="line"></span><br><span class="line">$running&#x3D;null;</span><br><span class="line">&#x2F;&#x2F; 执行批处理句柄</span><br><span class="line">do &#123;</span><br><span class="line">    curl_multi_exec($mh,$running);</span><br><span class="line">&#125; while ($running &gt; 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭全部句柄</span><br><span class="line">curl_multi_remove_handle($mh, $ch1);</span><br><span class="line">curl_multi_remove_handle($mh, $ch2);</span><br><span class="line">curl_multi_close($mh);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-multi-exec"><a href="#curl-multi-exec" class="headerlink" title="curl_multi_exec()"></a>curl_multi_exec()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">运行当前 cURL 句柄的子连接</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int curl_multi_exec ( resource $mh , int &amp;$still_running )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一对cURL资源</span><br><span class="line">$ch1 &#x3D; curl_init();</span><br><span class="line">$ch2 &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch1, CURLOPT_URL, &quot;http:&#x2F;&#x2F;lxr.php.net&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch1, CURLOPT_HEADER, 0);</span><br><span class="line">curl_setopt($ch2, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.php.net&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch2, CURLOPT_HEADER, 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建批处理cURL句柄</span><br><span class="line">$mh &#x3D; curl_multi_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 增加2个句柄</span><br><span class="line">curl_multi_add_handle($mh,$ch1);</span><br><span class="line">curl_multi_add_handle($mh,$ch2);</span><br><span class="line"></span><br><span class="line">$active &#x3D; null;</span><br><span class="line">&#x2F;&#x2F; 执行批处理句柄</span><br><span class="line">do &#123;</span><br><span class="line">    $mrc &#x3D; curl_multi_exec($mh, $active);</span><br><span class="line">&#125; while ($mrc &#x3D;&#x3D; CURLM_CALL_MULTI_PERFORM);</span><br><span class="line"></span><br><span class="line">while ($active &amp;&amp; $mrc &#x3D;&#x3D; CURLM_OK) &#123;</span><br><span class="line">    if (curl_multi_select($mh) !&#x3D; -1) &#123;</span><br><span class="line">        do &#123;</span><br><span class="line">            $mrc &#x3D; curl_multi_exec($mh, $active);</span><br><span class="line">        &#125; while ($mrc &#x3D;&#x3D; CURLM_CALL_MULTI_PERFORM);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭全部句柄</span><br><span class="line">curl_multi_remove_handle($mh, $ch1);</span><br><span class="line">curl_multi_remove_handle($mh, $ch2);</span><br><span class="line">curl_multi_close($mh);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-multi-getcontent"><a href="#curl-multi-getcontent" class="headerlink" title="curl_multi_getcontent()"></a>curl_multi_getcontent()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">如果设置了CURLOPT_RETURNTRANSFER，则返回获取的输出的文本流</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string curl_multi_getcontent ( resource $ch )</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-multi-info-read"><a href="#curl-multi-info-read" class="headerlink" title="curl_multi_info_read()"></a>curl_multi_info_read()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">获取当前解析的cURL的相关传输信息</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">array curl_multi_info_read ( resource $mh [, int &amp;$msgs_in_queue &#x3D; NULL ] )</span><br><span class="line">msgs_in_queue  仍在队列中的消息数量。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">$urls &#x3D; array(</span><br><span class="line">   &quot;http:&#x2F;&#x2F;www.baidu.com&#x2F;&quot;,</span><br><span class="line">   &quot;http:&#x2F;&#x2F;www.google.com.hk&#x2F;&quot;,</span><br><span class="line">   &quot;http:&#x2F;&#x2F;www.w3cschool.cc&#x2F;&quot;</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$mh &#x3D; curl_multi_init();</span><br><span class="line"></span><br><span class="line">foreach ($urls as $i &#x3D;&gt; $url) &#123;</span><br><span class="line">    $conn[$i] &#x3D; curl_init($url);</span><br><span class="line">    curl_setopt($conn[$i], CURLOPT_RETURNTRANSFER, 1);</span><br><span class="line">    curl_multi_add_handle($mh, $conn[$i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">do &#123;</span><br><span class="line">    $status &#x3D; curl_multi_exec($mh, $active);</span><br><span class="line">    $info &#x3D; curl_multi_info_read($mh);</span><br><span class="line">    if (false !&#x3D;&#x3D; $info) &#123;</span><br><span class="line">        var_dump($info);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; while ($status &#x3D;&#x3D;&#x3D; CURLM_CALL_MULTI_PERFORM || $active);</span><br><span class="line"></span><br><span class="line">foreach ($urls as $i &#x3D;&gt; $url) &#123;</span><br><span class="line">    $res[$i] &#x3D; curl_multi_getcontent($conn[$i]);</span><br><span class="line">    curl_close($conn[$i]);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var_dump(curl_multi_info_read($mh));</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">array(3) &#123;</span><br><span class="line">  [&quot;msg&quot;]&#x3D;&gt;</span><br><span class="line">  int(1)</span><br><span class="line">  [&quot;result&quot;]&#x3D;&gt;</span><br><span class="line">  int(0)</span><br><span class="line">  [&quot;handle&quot;]&#x3D;&gt;</span><br><span class="line">  resource(5) of type (curl)</span><br><span class="line">&#125;</span><br><span class="line">array(3) &#123;</span><br><span class="line">  [&quot;msg&quot;]&#x3D;&gt;</span><br><span class="line">  int(1)</span><br><span class="line">  [&quot;result&quot;]&#x3D;&gt;</span><br><span class="line">  int(0)</span><br><span class="line">  [&quot;handle&quot;]&#x3D;&gt;</span><br><span class="line">  resource(7) of type (curl)</span><br><span class="line">&#125;</span><br><span class="line">array(3) &#123;</span><br><span class="line">  [&quot;msg&quot;]&#x3D;&gt;</span><br><span class="line">  int(1)</span><br><span class="line">  [&quot;result&quot;]&#x3D;&gt;</span><br><span class="line">  int(0)</span><br><span class="line">  [&quot;handle&quot;]&#x3D;&gt;</span><br><span class="line">  resource(6) of type (curl)</span><br><span class="line">&#125;</span><br><span class="line">bool(false)</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-multi-init"><a href="#curl-multi-init" class="headerlink" title="curl_multi_init()"></a>curl_multi_init()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回一个新cURL批处理句柄</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resource curl_multi_init ( void )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F; 创建一对cURL资源</span><br><span class="line">$ch1 &#x3D; curl_init();</span><br><span class="line">$ch2 &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch1, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.example.com&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch1, CURLOPT_HEADER, 0);</span><br><span class="line">curl_setopt($ch2, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.php.net&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch2, CURLOPT_HEADER, 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 创建批处理cURL句柄</span><br><span class="line">$mh &#x3D; curl_multi_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 增加2个句柄</span><br><span class="line">curl_multi_add_handle($mh,$ch1);</span><br><span class="line">curl_multi_add_handle($mh,$ch2);</span><br><span class="line"></span><br><span class="line">$running&#x3D;null;</span><br><span class="line">&#x2F;&#x2F; 执行批处理句柄</span><br><span class="line">do &#123;</span><br><span class="line">    usleep(10000);</span><br><span class="line">    curl_multi_exec($mh,$running);</span><br><span class="line">&#125; while ($running &gt; 0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭全部句柄</span><br><span class="line">curl_multi_remove_handle($mh, $ch1);</span><br><span class="line">curl_multi_remove_handle($mh, $ch2);</span><br><span class="line">curl_multi_close($mh);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="curl-multi-remove-handle"><a href="#curl-multi-remove-handle" class="headerlink" title="curl_multi_remove_handle()"></a>curl_multi_remove_handle()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">移除curl批处理句柄资源中的某个句柄资源</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int curl_multi_remove_handle ( resource $mh , resource $ch )</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-multi-select"><a href="#curl-multi-select" class="headerlink" title="curl_multi_select()"></a>curl_multi_select()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">等待所有cURL批处理中的活动连接</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">int curl_multi_select ( resource $mh [, float $timeout &#x3D; 1.0 ] )</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-multi-setopt"><a href="#curl-multi-setopt" class="headerlink" title="curl_multi_setopt()"></a>curl_multi_setopt()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">设置一个批处理cURL传输选项</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">bool curl_multi_setopt ( resource $mh , int $option , mixed $value )</span><br><span class="line"></span><br><span class="line">option     </span><br><span class="line">            CURLOPT_AUTOREFERER	当根据Location:重定向时，自动设置header中的Referer:信息。	</span><br><span class="line">            CURLOPT_BINARYTRANSFER	在启用CURLOPT_RETURNTRANSFER的时候，返回原生的（Raw）输出。	</span><br><span class="line">            CURLOPT_COOKIESESSION	启用时curl会仅仅传递一个session cookie，忽略其他的cookie，默认状况下cURL会将所有的cookie返回给服务端。session cookie是指那些用来判断服务器端的session是否有效而存在的cookie。	</span><br><span class="line">            CURLOPT_CRLF	启用时将Unix的换行符转换成回车换行符。	</span><br><span class="line">            CURLOPT_DNS_USE_GLOBAL_CACHE	启用时会启用一个全局的DNS缓存，此项为线程安全的，并且默认启用。	</span><br><span class="line">            CURLOPT_FAILONERROR	显示HTTP状态码，默认行为是忽略编号小于等于400的HTTP信息。	</span><br><span class="line">            CURLOPT_FILETIME	启用时会尝试修改远程文档中的信息。结果信息会通过curl_getinfo()函数的CURLINFO_FILETIME选项返回。 curl_getinfo().	</span><br><span class="line">            CURLOPT_FOLLOWLOCATION	启用时会将服务器服务器返回的&quot;Location: &quot;放在header中递归的返回给服务器，使用CURLOPT_MAXREDIRS可以限定递归返回的数量。	</span><br><span class="line">            CURLOPT_FORBID_REUSE	在完成交互以后强迫断开连接，不能重用。	</span><br><span class="line">            CURLOPT_FRESH_CONNECT	强制获取一个新的连接，替代缓存中的连接。	</span><br><span class="line">            CURLOPT_FTP_USE_EPRT	启用时当FTP下载时，使用EPRT (或 LPRT)命令。设置为FALSE时禁用EPRT和LPRT，使用PORT命令 only.	</span><br><span class="line">            CURLOPT_FTP_USE_EPSV	启用时，在FTP传输过程中回复到PASV模式前首先尝试EPSV命令。设置为FALSE时禁用EPSV命令。	</span><br><span class="line">            CURLOPT_FTPAPPEND	启用时追加写入文件而不是覆盖它。	</span><br><span class="line">            CURLOPT_FTPASCII	CURLOPT_TRANSFERTEXT的别名。	</span><br><span class="line">            CURLOPT_FTPLISTONLY	启用时只列出FTP目录的名字。	</span><br><span class="line">            CURLOPT_HEADER	启用时会将头文件的信息作为数据流输出。	</span><br><span class="line">            CURLINFO_HEADER_OUT	启用时追踪句柄的请求字符串。	从 PHP 5.1.3 开始可用。CURLINFO_前缀是故意的(intentional)。</span><br><span class="line">            CURLOPT_HTTPGET	启用时会设置HTTP的method为GET，因为GET是默认是，所以只在被修改的情况下使用。	</span><br><span class="line">            CURLOPT_HTTPPROXYTUNNEL	启用时会通过HTTP代理来传输。	</span><br><span class="line">            CURLOPT_MUTE	启用时将cURL函数中所有修改过的参数恢复默认值。	</span><br><span class="line">            CURLOPT_NETRC	在连接建立以后，访问~&#x2F;.netrc文件获取用户名和密码信息连接远程站点。	</span><br><span class="line">            CURLOPT_NOBODY	启用时将不对HTML中的BODY部分进行输出。	</span><br><span class="line">            CURLOPT_NOPROGRESS	</span><br><span class="line">            启用时关闭curl传输的进度条，此项的默认设置为启用。</span><br><span class="line">            </span><br><span class="line">            Note:</span><br><span class="line">            </span><br><span class="line">            PHP自动地设置这个选项为TRUE，这个选项仅仅应当在以调试为目的时被改变。</span><br><span class="line">            </span><br><span class="line">            CURLOPT_NOSIGNAL	启用时忽略所有的curl传递给php进行的信号。在SAPI多线程传输时此项被默认启用。	cURL 7.10时被加入。</span><br><span class="line">            CURLOPT_POST	启用时会发送一个常规的POST请求，类型为：application&#x2F;x-www-form-urlencoded，就像表单提交的一样。	</span><br><span class="line">            CURLOPT_PUT	启用时允许HTTP发送文件，必须同时设置CURLOPT_INFILE和CURLOPT_INFILESIZE。	</span><br><span class="line">            CURLOPT_RETURNTRANSFER	将curl_exec()获取的信息以文件流的形式返回，而不是直接输出。	</span><br><span class="line">            CURLOPT_SSL_VERIFYPEER	禁用后cURL将终止从服务端进行验证。使用CURLOPT_CAINFO选项设置证书使用CURLOPT_CAPATH选项设置证书目录 如果CURLOPT_SSL_VERIFYPEER(默认值为2)被启用，CURLOPT_SSL_VERIFYHOST需要被设置成TRUE否则设置为FALSE。	自cURL 7.10开始默认为TRUE。从cURL 7.10开始默认绑定安装。</span><br><span class="line">            CURLOPT_TRANSFERTEXT	启用后对FTP传输使用ASCII模式。对于LDAP，它检索纯文本信息而非HTML。在Windows系统上，系统不会把STDOUT设置成binary模式。	</span><br><span class="line">            CURLOPT_UNRESTRICTED_AUTH	在使用CURLOPT_FOLLOWLOCATION产生的header中的多个locations中持续追加用户名和密码信息，即使域名已发生改变。	</span><br><span class="line">            CURLOPT_UPLOAD	启用后允许文件上传。	</span><br><span class="line">            CURLOPT_VERBOSE	启用时会汇报所有的信息，存放在STDERR或指定的CURLOPT_STDERR中。</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-multi-strerror"><a href="#curl-multi-strerror" class="headerlink" title="curl_multi_strerror()"></a>curl_multi_strerror()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回描述错误码的字符串文本。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string curl_multi_strerror ( int $errornum )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建 cURL 句柄</span><br><span class="line">$ch1 &#x3D; curl_init(&quot;https:&#x2F;&#x2F;www.runoob.com&#x2F;&quot;);</span><br><span class="line">$ch2 &#x3D; curl_init(&quot;http:&#x2F;&#x2F;php.net&#x2F;&quot;);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 创建一个批处理cURL句柄</span><br><span class="line">$mh &#x3D; curl_multi_init();</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 添加句柄到批处理句柄</span><br><span class="line">curl_multi_add_handle($mh, $ch1);</span><br><span class="line">curl_multi_add_handle($mh, $ch2);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 执行批处理句柄</span><br><span class="line">do &#123;</span><br><span class="line">    $status &#x3D; curl_multi_exec($mh, $active);</span><br><span class="line">    &#x2F;&#x2F; 检查错误</span><br><span class="line">    if($status &gt; 0) &#123;</span><br><span class="line">        &#x2F;&#x2F; 显示错误信息</span><br><span class="line">        echo &quot;ERROR!\n &quot; . curl_multi_strerror($status);</span><br><span class="line">    &#125;</span><br><span class="line">&#125; while ($status &#x3D;&#x3D;&#x3D; CURLM_CALL_MULTI_PERFORM || $active);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-pause"><a href="#curl-pause" class="headerlink" title="curl_pause()"></a>curl_pause()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">暂停及恢复连接。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">int curl_pause ( resource $ch , int $bitmask )</span><br><span class="line">ch         由 curl_init() 返回的 cURL 句柄。</span><br><span class="line">bitmask    CURLPAUSE_*中的一个常量。</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-reset"><a href="#curl-reset" class="headerlink" title="curl_reset()"></a>curl_reset()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">重置libcurl会话句柄的所有选项。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void curl_reset ( resource $ch )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个cURL句柄</span><br><span class="line">$ch &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置 CURLOPT_USERAGENT 选项</span><br><span class="line">curl_setopt($ch, CURLOPT_USERAGENT, &quot;My test user-agent&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 重置所有先前设置的选项</span><br><span class="line">curl_reset($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 发送 HTTP 请求</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, &#39;http:&#x2F;&#x2F;w3cschool.cc&#x2F;&#39;);</span><br><span class="line">curl_exec($ch); &#x2F;&#x2F; the previously set user-agent will be not sent, it has been reset by curl_reset</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭句柄</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-setopt-array"><a href="#curl-setopt-array" class="headerlink" title="curl_setopt_array()"></a>curl_setopt_array()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">为 cURL 传输会话批量设置选项。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool curl_setopt_array ( resource $ch , array $options )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个新cURL资源</span><br><span class="line">$ch &#x3D; curl_init();</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">$options &#x3D; array(CURLOPT_URL &#x3D;&gt; &#39;https:&#x2F;&#x2F;www.runoob.com&#39;,</span><br><span class="line">                 CURLOPT_HEADER &#x3D;&gt; false</span><br><span class="line">                );</span><br><span class="line"> </span><br><span class="line">curl_setopt_array($ch, $options);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 抓取URL并把它传递给浏览器</span><br><span class="line">curl_exec($ch);</span><br><span class="line"> </span><br><span class="line">&#x2F;&#x2F; 关闭 cURL 资源，并且释放系统资源</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="curl-setopt"><a href="#curl-setopt" class="headerlink" title="curl_setopt()"></a>curl_setopt()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">设置一个cURL传输选项。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool curl_setopt ( resource $ch , int $option , mixed $value )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个新cURL资源</span><br><span class="line">$ch &#x3D; curl_init();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 设置URL和相应的选项</span><br><span class="line">curl_setopt($ch, CURLOPT_URL, &quot;http:&#x2F;&#x2F;www.example.com&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch, CURLOPT_HEADER, false);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 抓取URL并把它传递给浏览器</span><br><span class="line">curl_exec($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;关闭cURL资源，并且释放系统资源</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-share-close"><a href="#curl-share-close" class="headerlink" title="curl_share_close()"></a>curl_share_close()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">关闭 cURL 共享句柄并释放所有资源。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">void curl_share_close ( resource $sh )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建cURL共享句柄并设置cookie数据</span><br><span class="line">$sh &#x3D; curl_share_init();</span><br><span class="line">curl_share_setopt($sh, CURLSHOPT_SHARE, CURL_LOCK_DATA_COOKIE);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 初始化第一个cURL句柄并指定它为共享句柄</span><br><span class="line">$ch1 &#x3D; curl_init(&quot;http:&#x2F;&#x2F;www.w3cschool.cc&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch1, CURLOPT_SHARE, $sh);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行第一个cURL句柄</span><br><span class="line">curl_exec($ch1);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 初始化第二个cURL句柄并指定它为共享句柄</span><br><span class="line">$ch2 &#x3D; curl_init(&quot;http:&#x2F;&#x2F;php.net&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch2, CURLOPT_SHARE, $sh);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行第二个cURL句柄</span><br><span class="line">&#x2F;&#x2F;  所有 $ch1 句柄的数据在 $ch2 句柄中共享</span><br><span class="line">curl_exec($ch2);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL共享句柄</span><br><span class="line">curl_share_close($sh);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL句柄</span><br><span class="line">curl_close($ch1);</span><br><span class="line">curl_close($ch2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-share-init"><a href="#curl-share-init" class="headerlink" title="curl_share_init()"></a>curl_share_init()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">初始化一个 cURL 共享句柄</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">resource curl_share_init ( void )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建cURL共享句柄并设置cookie数据</span><br><span class="line">$sh &#x3D; curl_share_init();</span><br><span class="line">curl_share_setopt($sh, CURLSHOPT_SHARE, CURL_LOCK_DATA_COOKIE);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 初始化第一个cURL句柄并指定它为共享句柄</span><br><span class="line">$ch1 &#x3D; curl_init(&quot;http:&#x2F;&#x2F;www.w3cschool.cc&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch1, CURLOPT_SHARE, $sh);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行第一个cURL句柄</span><br><span class="line">curl_exec($ch1);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 初始化第二个cURL句柄并指定它为共享句柄</span><br><span class="line">$ch2 &#x3D; curl_init(&quot;http:&#x2F;&#x2F;php.net&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch2, CURLOPT_SHARE, $sh);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行第二个cURL句柄</span><br><span class="line">&#x2F;&#x2F;  所有 $ch1 句柄的数据在 $ch2 句柄中共享</span><br><span class="line">curl_exec($ch2);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL共享句柄</span><br><span class="line">curl_share_close($sh);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL句柄W</span><br><span class="line">curl_close($ch1);</span><br><span class="line">curl_close($ch2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-share-setopt"><a href="#curl-share-setopt" class="headerlink" title="curl_share_setopt()"></a>curl_share_setopt()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">设置 cURL 共享句柄的一个选项</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bool curl_share_setopt ( resource $sh , int $option , string $value )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建cURL共享句柄并设置cookie数据</span><br><span class="line">$sh &#x3D; curl_share_init();</span><br><span class="line">curl_share_setopt($sh, CURLSHOPT_SHARE, CURL_LOCK_DATA_COOKIE);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 初始化第一个cURL句柄并指定它为共享句柄</span><br><span class="line">$ch1 &#x3D; curl_init(&quot;http:&#x2F;&#x2F;www.w3cschool.cc&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch1, CURLOPT_SHARE, $sh);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行第一个cURL句柄</span><br><span class="line">curl_exec($ch1);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 初始化第二个cURL句柄并指定它为共享句柄</span><br><span class="line">$ch2 &#x3D; curl_init(&quot;http:&#x2F;&#x2F;php.net&#x2F;&quot;);</span><br><span class="line">curl_setopt($ch2, CURLOPT_SHARE, $sh);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 执行第二个cURL句柄</span><br><span class="line">&#x2F;&#x2F;  所有 $ch1 句柄的数据在 $ch2 句柄中共享</span><br><span class="line">curl_exec($ch2);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL共享句柄</span><br><span class="line">curl_share_close($sh);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭cURL句柄W</span><br><span class="line">curl_close($ch1);</span><br><span class="line">curl_close($ch2)</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-strerror"><a href="#curl-strerror" class="headerlink" title="curl_strerror()"></a>curl_strerror()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回错误码的描述</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl_strerror ( int $errornum )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个拼写错误的URL的cURL句柄</span><br><span class="line">$ch &#x3D; curl_init(&quot;htp:&#x2F;&#x2F;example.com&#x2F;&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 发送请求</span><br><span class="line">curl_exec($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 检查错误代码并显示错误信息</span><br><span class="line">if($errno &#x3D; curl_errno($ch)) &#123;</span><br><span class="line">    $error_message &#x3D; curl_strerror($errno);</span><br><span class="line">    echo &quot;cURL error (&#123;$errno&#125;):\n &#123;$error_message&#125;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭句柄</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cURL error (1):</span><br><span class="line"> Unsupported protocol</span><br></pre></td></tr></table></figure>
+
+<h3 id="curl-unescape"><a href="#curl-unescape" class="headerlink" title="curl_unescape()"></a>curl_unescape()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">解码经过URL编码的字符串。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">string curl_unescape ( resource $ch , string $str )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建一个curl句柄</span><br><span class="line">$ch &#x3D; curl_init(&#39;http:&#x2F;&#x2F;example.com&#x2F;redirect.php&#39;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 发送 HTTP 请求</span><br><span class="line">curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);</span><br><span class="line">curl_exec($ch);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 获得最后一个有效的URL</span><br><span class="line">$effective_url &#x3D; curl_getinfo($ch, CURLINFO_EFFECTIVE_URL);</span><br><span class="line">&#x2F;&#x2F; ie. &quot;http:&#x2F;&#x2F;example.com&#x2F;show_location.php?loc&#x3D;M%C3%BCnchen&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 解码URL</span><br><span class="line">$effective_url_decoded &#x3D; curl_unescape($ch, $effective_url);</span><br><span class="line">&#x2F;&#x2F; &quot;http:&#x2F;&#x2F;example.com&#x2F;show_location.php?loc&#x3D;München&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 关闭句柄</span><br><span class="line">curl_close($ch);</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="curl-version"><a href="#curl-version" class="headerlink" title="curl_version()"></a>curl_version()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">获取cURL版本信息。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">array curl_version ([ int $age &#x3D; CURLVERSION_NOW ] )</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 获取cURL版本数组</span><br><span class="line">$version &#x3D; curl_version();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 在cURL编译版本中使用位域来检查某些特性</span><br><span class="line">$bitfields &#x3D; Array(</span><br><span class="line">            &#39;CURL_VERSION_IPV6&#39;, </span><br><span class="line">            &#39;CURL_VERSION_KERBEROS4&#39;, </span><br><span class="line">            &#39;CURL_VERSION_SSL&#39;, </span><br><span class="line">            &#39;CURL_VERSION_LIBZ&#39;</span><br><span class="line">            );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">foreach($bitfields as $feature)</span><br><span class="line">&#123;</span><br><span class="line">    echo $feature . ($version[&#39;features&#39;] &amp; constant($feature) ? &#39; matches&#39; : &#39; does not match&#39;);</span><br><span class="line">    echo PHP_EOL;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><blockquote>
+<p> <a href="https://www.runoob.com/php/php-ref-curl.html" target="_blank" rel="noopener">《PHP 5 Array 函数 | 菜鸟教程》</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/06/28/PHP-%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-id="ckbycvby40000uc9uhc5rdmsc" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/06/21/php-%E7%AC%AC%E4%B8%89%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">php 第三周函数学习记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">June 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/06/28/PHP-%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">PHP 第四周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/21/php-%E7%AC%AC%E4%B8%89%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">php 第三周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/14/php2week/">php 第二周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/14/php1week/">php 第一周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/12/article/">hexo 博客搭建笔记</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 John Doe<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
