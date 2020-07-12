@@ -1,0 +1,597 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>PHP第六周函数学习记录 | zerocoder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="timezone_identifiers_list()作用 1返回带有所有时区标识符的数值数组。 用法 1234567891011121314151617timezone_identifiers_list(what,country);what	可选。规定一个 DateTimeZone 类常量        1 &#x3D; AFRICA        2 &#x3D; AMERICA">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP第六周函数学习记录">
+<meta property="og:url" content="http://yoursite.com/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="zerocoder">
+<meta property="og:description" content="timezone_identifiers_list()作用 1返回带有所有时区标识符的数值数组。 用法 1234567891011121314151617timezone_identifiers_list(what,country);what	可选。规定一个 DateTimeZone 类常量        1 &#x3D; AFRICA        2 &#x3D; AMERICA">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-12T01:10:29.000Z">
+<meta property="article:modified_time" content="2020-07-12T01:55:36.731Z">
+<meta property="article:author" content="zerocoder">
+<meta property="article:tag" content="PHP">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 4.2.1"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">zerocoder</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">文章</a>
+        
+          <a class="main-nav-link" href="/categories/Code/">Code</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        <!--
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+        -->
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://yoursite.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-PHP第六周函数学习记录" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="article-date">
+  <time datetime="2020-07-12T01:10:29.000Z" itemprop="datePublished">2020-07-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Code/">Code</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      PHP第六周函数学习记录
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="timezone-identifiers-list"><a href="#timezone-identifiers-list" class="headerlink" title="timezone_identifiers_list()"></a>timezone_identifiers_list()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回带有所有时区标识符的数值数组。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">timezone_identifiers_list(what,country);</span><br><span class="line"></span><br><span class="line">what	可选。规定一个 DateTimeZone 类常量</span><br><span class="line">        1 &#x3D; AFRICA</span><br><span class="line">        2 &#x3D; AMERICA</span><br><span class="line">        4 &#x3D; ANTARCTICA</span><br><span class="line">        8 &#x3D; ARCTIC</span><br><span class="line">        16 &#x3D; ASIA</span><br><span class="line">        32 &#x3D; ATLANTIC</span><br><span class="line">        64 &#x3D; AUSTRALIA</span><br><span class="line">        128 &#x3D; EUROPE</span><br><span class="line">        256 &#x3D; INDIAN</span><br><span class="line">        512 &#x3D; PACIFIC</span><br><span class="line">        1024 &#x3D; UTC</span><br><span class="line">        2047 &#x3D; ALL</span><br><span class="line">        4095 &#x3D; ALL_WITH_BC</span><br><span class="line">        4096 &#x3D; PER_COUNTRY</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print_r(timezone_identifiers_list(1));</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] &#x3D;&gt; Africa&#x2F;Abidjan</span><br><span class="line">    [1] &#x3D;&gt; Africa&#x2F;Accra</span><br><span class="line">    [2] &#x3D;&gt; Africa&#x2F;Addis_Ababa</span><br><span class="line">    [3] &#x3D;&gt; Africa&#x2F;Algiers</span><br><span class="line">    [4] &#x3D;&gt; Africa&#x2F;Asmara</span><br><span class="line">    [5] &#x3D;&gt; Africa&#x2F;Bamako</span><br><span class="line">    [6] &#x3D;&gt; Africa&#x2F;Bangui</span><br><span class="line">    [7] &#x3D;&gt; Africa&#x2F;Banjul</span><br><span class="line">    [8] &#x3D;&gt; Africa&#x2F;Bissau</span><br><span class="line">    [9] &#x3D;&gt; Africa&#x2F;Blantyre</span><br><span class="line">    [10] &#x3D;&gt; Africa&#x2F;Brazzaville</span><br><span class="line">    [11] &#x3D;&gt; Africa&#x2F;Bujumbura</span><br><span class="line">    [12] &#x3D;&gt; Africa&#x2F;Cairo</span><br><span class="line">    [13] &#x3D;&gt; Africa&#x2F;Casablanca</span><br><span class="line">    [14] &#x3D;&gt; Africa&#x2F;Ceuta</span><br><span class="line">    [15] &#x3D;&gt; Africa&#x2F;Conakry</span><br><span class="line">    [16] &#x3D;&gt; Africa&#x2F;Dakar</span><br><span class="line">    [17] &#x3D;&gt; Africa&#x2F;Dar_es_Salaam</span><br><span class="line">    [18] &#x3D;&gt; Africa&#x2F;Djibouti</span><br><span class="line">    [19] &#x3D;&gt; Africa&#x2F;Douala</span><br><span class="line">    [20] &#x3D;&gt; Africa&#x2F;El_Aaiun</span><br><span class="line">    [21] &#x3D;&gt; Africa&#x2F;Freetown</span><br><span class="line">    [22] &#x3D;&gt; Africa&#x2F;Gaborone</span><br><span class="line">    [23] &#x3D;&gt; Africa&#x2F;Harare</span><br><span class="line">    [24] &#x3D;&gt; Africa&#x2F;Johannesburg</span><br><span class="line">    [25] &#x3D;&gt; Africa&#x2F;Juba</span><br><span class="line">    [26] &#x3D;&gt; Africa&#x2F;Kampala</span><br><span class="line">    [27] &#x3D;&gt; Africa&#x2F;Khartoum</span><br><span class="line">    [28] &#x3D;&gt; Africa&#x2F;Kigali</span><br><span class="line">    [29] &#x3D;&gt; Africa&#x2F;Kinshasa</span><br><span class="line">    [30] &#x3D;&gt; Africa&#x2F;Lagos</span><br><span class="line">    [31] &#x3D;&gt; Africa&#x2F;Libreville</span><br><span class="line">    [32] &#x3D;&gt; Africa&#x2F;Lome</span><br><span class="line">    [33] &#x3D;&gt; Africa&#x2F;Luanda</span><br><span class="line">    [34] &#x3D;&gt; Africa&#x2F;Lubumbashi</span><br><span class="line">    [35] &#x3D;&gt; Africa&#x2F;Lusaka</span><br><span class="line">    [36] &#x3D;&gt; Africa&#x2F;Malabo</span><br><span class="line">    [37] &#x3D;&gt; Africa&#x2F;Maputo</span><br><span class="line">    [38] &#x3D;&gt; Africa&#x2F;Maseru</span><br><span class="line">    [39] &#x3D;&gt; Africa&#x2F;Mbabane</span><br><span class="line">    [40] &#x3D;&gt; Africa&#x2F;Mogadishu</span><br><span class="line">    [41] &#x3D;&gt; Africa&#x2F;Monrovia</span><br><span class="line">    [42] &#x3D;&gt; Africa&#x2F;Nairobi</span><br><span class="line">    [43] &#x3D;&gt; Africa&#x2F;Ndjamena</span><br><span class="line">    [44] &#x3D;&gt; Africa&#x2F;Niamey</span><br><span class="line">    [45] &#x3D;&gt; Africa&#x2F;Nouakchott</span><br><span class="line">    [46] &#x3D;&gt; Africa&#x2F;Ouagadougou</span><br><span class="line">    [47] &#x3D;&gt; Africa&#x2F;Porto-Novo</span><br><span class="line">    [48] &#x3D;&gt; Africa&#x2F;Sao_Tome</span><br><span class="line">    [49] &#x3D;&gt; Africa&#x2F;Tripoli</span><br><span class="line">    [50] &#x3D;&gt; Africa&#x2F;Tunis</span><br><span class="line">    [51] &#x3D;&gt; Africa&#x2F;Windhoek</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="timezone-location-get"><a href="#timezone-location-get" class="headerlink" title="timezone_location_get()"></a>timezone_location_get()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回指定时区的位置信息</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timezone_location_get(object);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$tz&#x3D;timezone_open(&quot;Asia&#x2F;Taipei&quot;);</span><br><span class="line">print_r(timezone_location_get($tz));</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">Array ( </span><br><span class="line">    [country_code] &#x3D;&gt; TW </span><br><span class="line">    [latitude] &#x3D;&gt; 25.05</span><br><span class="line">    [longitude] &#x3D;&gt; 121.5 </span><br><span class="line">    [comments] &#x3D;&gt; </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="timezone-name-from-abbr"><a href="#timezone-name-from-abbr" class="headerlink" title="timezone_name_from_abbr()"></a>timezone_name_from_abbr()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">根据时区缩略语返回时区名称</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">timezone_name_from_abbr(abbr,gmtoffset,isdst);</span><br><span class="line">abbr	必需。规定时区缩略语。</span><br><span class="line">gmtoffset	可选。规定相对于 GMT 的以秒为单位的偏移量。默认为 -1，表示返回第一个被找到的匹配缩略语的时区。否则搜索精确的偏移量。如果没有找到，则返回任意偏移量的第一个时区。</span><br><span class="line">isdst	可选。规定夏令时指示器。</span><br><span class="line">        -1 &#x3D; 默认。搜索时是否考虑时区的夏令时</span><br><span class="line">         1 &#x3D; 表示 gmtoffset 是受夏令时影响的一个偏移量</span><br><span class="line">         0 &#x3D; 表示 gmtoffset 是不受夏令时影响的一个偏移量</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo timezone_name_from_abbr(&quot;EST&quot;) . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo timezone_name_from_abbr(&quot;&quot;,7200,0);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">America&#x2F;New_York</span><br><span class="line">Europe&#x2F;Helsinki</span><br></pre></td></tr></table></figure>
+
+<h3 id="timezone-name-get"><a href="#timezone-name-get" class="headerlink" title="timezone_name_get()"></a>timezone_name_get()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回时区的名称</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">timezone_name_get(object);</span><br><span class="line">object	必需。规定一个 DateTimeZone 对象。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$tz&#x3D;timezone_open(&quot;Europe&#x2F;Paris&quot;);</span><br><span class="line">echo timezone_name_get($tz);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Europe&#x2F;Paris</span><br></pre></td></tr></table></figure>
+
+<h3 id="timezone-offset-get"><a href="#timezone-offset-get" class="headerlink" title="timezone_offset_get()"></a>timezone_offset_get()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回相对于 GMT 的时区偏移</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timezone_offset_get(object,datetime);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$tz&#x3D;timezone_open(&quot;Asia&#x2F;Taipei&quot;);</span><br><span class="line">$dateTimeOslo&#x3D;date_create(&quot;now&quot;,timezone_open(&quot;Europe&#x2F;Oslo&quot;));</span><br><span class="line">echo timezone_offset_get($tz,$dateTimeOslo);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">28800</span><br></pre></td></tr></table></figure>
+
+<h3 id="timezone-open"><a href="#timezone-open" class="headerlink" title="timezone_open()"></a>timezone_open()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">创建一个新的 DateTimeZone 对象</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timezone_open(timezone);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$tz&#x3D;timezone_open(&quot;Europe&#x2F;Paris&quot;);</span><br><span class="line">echo timezone_name_get($tz);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Europe&#x2F;Paris</span><br></pre></td></tr></table></figure>
+
+<h3 id="timezone-version-get"><a href="#timezone-version-get" class="headerlink" title="timezone_version_get()"></a>timezone_version_get()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数返回时区数据库的版本。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timezone_open(timezone);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo timezone_version_get();</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2012.2</span><br></pre></td></tr></table></figure>
+
+<h3 id="chdir"><a href="#chdir" class="headerlink" title="chdir()"></a>chdir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数改变当前的目录。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chdir(directory);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Get current directory</span><br><span class="line">echo getcwd() . &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Change directory</span><br><span class="line">chdir(&quot;images&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Get current directory</span><br><span class="line">echo getcwd();</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;home&#x2F;php</span><br><span class="line">&#x2F;home&#x2F;php&#x2F;images</span><br></pre></td></tr></table></figure>
+
+<h3 id="chroot"><a href="#chroot" class="headerlink" title="chroot()"></a>chroot()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"> 函数改变当前进程的根目录为 directory，并把当前工作目录改为 &quot;&#x2F;&quot;。</span><br><span class="line"></span><br><span class="line">注意：该函数需要 root 权限，且仅在 GNU 和 BSD 系统上仅当使用 CLI、CGI、嵌入式 SAPI 时可用。该函数没有在 Windows 平台上实现。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chroot(directory);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; Change root directory</span><br><span class="line">chroot(&quot;&#x2F;path&#x2F;to&#x2F;chroot&#x2F;&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Get current directory</span><br><span class="line">echo getcwd();</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;</span><br></pre></td></tr></table></figure>
+
+<h3 id="closedir"><a href="#closedir" class="headerlink" title="closedir()"></a>closedir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数关闭目录句柄</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">closedir(dir_handle);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$dir &#x3D; &quot;&#x2F;images&#x2F;&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Open a directory, and read its contents</span><br><span class="line">if (is_dir($dir))&#123;</span><br><span class="line">    if ($dh &#x3D; opendir($dir))&#123;</span><br><span class="line">        while (($file &#x3D; readdir($dh)) !&#x3D;&#x3D; false)&#123;</span><br><span class="line">            echo &quot;filename:&quot; . $file . &quot;&lt;br&gt;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        closedir($dh);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">filename: cat.gif</span><br><span class="line">filename: dog.gif</span><br><span class="line">filename: horse.gif</span><br></pre></td></tr></table></figure>
+
+<h3 id="dir"><a href="#dir" class="headerlink" title="dir()"></a>dir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">dir() 函数返回 Directory 类的实例。该函数用于读取一个目录，包含如下：</span><br><span class="line">    给定的要打开的目录</span><br><span class="line">    dir() 的 handle 和 path 两个属性是可用的</span><br><span class="line">    handle 和 path 属性有三个方法：read()、rewind() 和 close()</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dir(directory,context);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$d &#x3D; dir(getcwd());</span><br><span class="line"></span><br><span class="line">echo &quot;Handle: &quot; . $d-&gt;handle . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo &quot;Path: &quot; . $d-&gt;path . &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">while (($file &#x3D; $d-&gt;read()) !&#x3D;&#x3D; false)&#123;</span><br><span class="line">echo &quot;filename: &quot; . $file . &quot;&lt;br&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line">$d-&gt;close();</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Handle: Resource id #2</span><br><span class="line">Path: &#x2F;etc&#x2F;php</span><br><span class="line">filename: .</span><br><span class="line">filename: ..</span><br><span class="line">filename: ajax.gif</span><br><span class="line">filename: books.xml</span><br><span class="line">filename: cdcatalog.xml</span><br><span class="line">filename: cd_catalog.xml</span><br><span class="line">filename: default.html</span><br><span class="line">filename: demo_array.html</span><br><span class="line">filename: demo_array.htm</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+
+<h3 id="getcwd"><a href="#getcwd" class="headerlink" title="getcwd()"></a>getcwd()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数返回当前工作目录。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getcwd();</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo getcwd()</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;home&#x2F;php</span><br></pre></td></tr></table></figure>
+
+<h3 id="opendir"><a href="#opendir" class="headerlink" title="opendir()"></a>opendir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数打开目录句柄。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">opendir(path,context);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$dir &#x3D; &quot;&#x2F;images&#x2F;&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Open a directory, and read its contents</span><br><span class="line">if (is_dir($dir))&#123;</span><br><span class="line">    if ($dh &#x3D; opendir($dir))&#123;</span><br><span class="line">        while (($file &#x3D; readdir($dh)) !&#x3D;&#x3D; false)&#123;</span><br><span class="line">            echo &quot;filename:&quot; . $file . &quot;&lt;br&gt;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        closedir($dh);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">filename: cat.gif</span><br><span class="line">filename: dog.gif</span><br><span class="line">filename: horse.gif</span><br></pre></td></tr></table></figure>
+
+<h3 id="readdir"><a href="#readdir" class="headerlink" title="readdir()"></a>readdir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数返回目录中下一个文件的文件名。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readdir(dir_handle);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">$dir &#x3D; &quot;&#x2F;images&#x2F;&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Open a directory, and read its contents</span><br><span class="line">if (is_dir($dir))&#123;</span><br><span class="line">    if ($dh &#x3D; opendir($dir))&#123;</span><br><span class="line">        while (($file &#x3D; readdir($dh)) !&#x3D;&#x3D; false)&#123;</span><br><span class="line">            echo &quot;filename:&quot; . $file . &quot;&lt;br&gt;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        closedir($dh);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">filename: cat.gif</span><br><span class="line">filename: dog.gif</span><br><span class="line">filename: horse.gif</span><br></pre></td></tr></table></figure>
+
+<h3 id="rewinddir"><a href="#rewinddir" class="headerlink" title="rewinddir()"></a>rewinddir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数重置由 opendir() 创建的目录句柄。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rewinddir(dir_handle);</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">$dir &#x3D; &quot;&#x2F;images&#x2F;&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Open a directory, and read its contents</span><br><span class="line">if (is_dir($dir))&#123;</span><br><span class="line">    if ($dh &#x3D; opendir($dir))&#123;</span><br><span class="line">        &#x2F;&#x2F; List files in images directory</span><br><span class="line">        while (($file &#x3D; readdir($dh)) !&#x3D;&#x3D; false)&#123;</span><br><span class="line">            echo &quot;filename:&quot; . $file . &quot;&lt;br&gt;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        rewinddir();</span><br><span class="line">        &#x2F;&#x2F; List once again files in images directory</span><br><span class="line">        while (($file &#x3D; readdir($dh)) !&#x3D;&#x3D; false)&#123;</span><br><span class="line">            echo &quot;filename:&quot; . $file . &quot;&lt;br&gt;&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        closedir($dh);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">filename: cat.gif</span><br><span class="line">filename: dog.gif</span><br><span class="line">filename: horse.gif</span><br><span class="line">filename: cat.gif</span><br><span class="line">filename: dog.gif</span><br><span class="line">filename: horse.gif</span><br></pre></td></tr></table></figure>
+
+<h3 id="scandir"><a href="#scandir" class="headerlink" title="scandir()"></a>scandir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数返回指定目录中的文件和目录的数组。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">scandir(directory,sorting_order,context);</span><br><span class="line">directory	    必需。规定要扫描的目录。</span><br><span class="line">sorting_order	可选。规定排列顺序。默认是 0，表示按字母升序排列。如果设置为 SCANDIR_SORT_DESCENDING 或者 1，则表示按字母降序排列。如果设置为 SCANDIR_SORT_NONE，则返回未排列的结果。</span><br><span class="line">context	        可选。规定目录句柄的环境。context 是可修改目录流的行为的一套选项。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">$dir &#x3D; &quot;&#x2F;images&#x2F;&quot;;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Sort in ascending order - this is default</span><br><span class="line">$a &#x3D; scandir($dir);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Sort in descending order</span><br><span class="line">$b &#x3D; scandir($dir,1);</span><br><span class="line"></span><br><span class="line">print_r($a);</span><br><span class="line">print_r($b);</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">[0] &#x3D;&gt; .</span><br><span class="line">[1] &#x3D;&gt; ..</span><br><span class="line">[2] &#x3D;&gt; cat.gif</span><br><span class="line">[3] &#x3D;&gt; dog.gif</span><br><span class="line">[4] &#x3D;&gt; horse.gif</span><br><span class="line">[5] &#x3D;&gt; myimages</span><br><span class="line">)</span><br><span class="line">Array</span><br><span class="line">(</span><br><span class="line">[0] &#x3D;&gt; myimages</span><br><span class="line">[1] &#x3D;&gt; horse.gif</span><br><span class="line">[2] &#x3D;&gt; dog.gif</span><br><span class="line">[3] &#x3D;&gt; cat.gif</span><br><span class="line">[4] &#x3D;&gt; ..</span><br><span class="line">[5] &#x3D;&gt; .</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="debug-backtrace"><a href="#debug-backtrace" class="headerlink" title="debug_backtrace()"></a>debug_backtrace()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">debug_backtrace() 函数生成 backtrace。</span><br><span class="line">该函数显示由 debug_backtrace() 函数代码生成的数据。</span><br></pre></td></tr></table></figure>
+<p>返回一个关联数组。下面是可能返回的元素：<br>| 名称     | 类型    | 描述                                                         |<br>| ——– | ——- | ———————————————————— |<br>| function | string  | 当前的函数名。                                               |<br>| line     | integer | 当前的行号。                                                 |<br>| file     | string  | 当前的文件名。                                               |<br>| class    | string  | 当前的类名。                                                 |<br>| object   | object  | 当前对象。                                                   |<br>| type     | string  | 当前的调用类型，可能的调用：<br>返回：”-&gt;” - 方法调用<br>返回：”::” - 静态方法调用<br>返回 nothing - 函数调用<br> |<br>| args     | array   | 如果在函数中，列出函数参数。如果在被引用的文件中，列出被引用的文件名 |<br>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debug_backtrace()</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function one($str1, $str2)</span><br><span class="line">&#123;</span><br><span class="line">    two(&quot;Glenn&quot;, &quot;Quagmire&quot;);</span><br><span class="line">&#125;</span><br><span class="line">function two($str1, $str2)</span><br><span class="line">&#123;</span><br><span class="line">    three(&quot;Cleveland&quot;, &quot;Brown&quot;);</span><br><span class="line">&#125;</span><br><span class="line">function three($str1, $str2)</span><br><span class="line">&#123;</span><br><span class="line">    print_r(debug_backtrace());</span><br><span class="line">&#125;</span><br><span class="line">one(&quot;Peter&quot;, &quot;Griffin&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] &#x3D;&gt; Array</span><br><span class="line">    (</span><br><span class="line">        [file] &#x3D;&gt; C:webfoldertest.php</span><br><span class="line">        [line] &#x3D;&gt; 7</span><br><span class="line">        [function] &#x3D;&gt; three</span><br><span class="line">        [args] &#x3D;&gt; Array</span><br><span class="line">                (</span><br><span class="line">                [0] &#x3D;&gt; Cleveland</span><br><span class="line">                [1] &#x3D;&gt; Brown</span><br><span class="line">                )</span><br><span class="line">    )</span><br><span class="line">    [1] &#x3D;&gt; Array</span><br><span class="line">    (</span><br><span class="line">        [file] &#x3D;&gt; C:webfoldertest.php</span><br><span class="line">        [line] &#x3D;&gt; 3</span><br><span class="line">        [function] &#x3D;&gt; two</span><br><span class="line">        [args] &#x3D;&gt; Array</span><br><span class="line">                (</span><br><span class="line">                [0] &#x3D;&gt; Glenn</span><br><span class="line">                [1] &#x3D;&gt; Quagmire</span><br><span class="line">                )</span><br><span class="line">    )</span><br><span class="line">    [2] &#x3D;&gt; Array</span><br><span class="line">    (</span><br><span class="line">        [file] &#x3D;&gt; C:webfoldertest.php</span><br><span class="line">        [line] &#x3D;&gt; 14</span><br><span class="line">        [function] &#x3D;&gt; one</span><br><span class="line">        [args] &#x3D;&gt; Array</span><br><span class="line">        (</span><br><span class="line">            [0] &#x3D;&gt; Peter</span><br><span class="line">            [1] &#x3D;&gt; Griffin</span><br><span class="line">        )</span><br><span class="line">    )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="debug-print-backtrace"><a href="#debug-print-backtrace" class="headerlink" title="debug_print_backtrace()"></a>debug_print_backtrace()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">debug_print_backtrace() 函数打印 backtrace。</span><br><span class="line">该函数显示由 debug_print_backtrace() 函数代码生成的数据。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debug_print_backtrace()</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function one($str1, $str2)</span><br><span class="line">&#123;</span><br><span class="line">    two(&quot;Glenn&quot;, &quot;Quagmire&quot;);</span><br><span class="line">&#125;</span><br><span class="line">function two($str1, $str2)</span><br><span class="line">&#123;</span><br><span class="line">    three(&quot;Cleveland&quot;, &quot;Brown&quot;);</span><br><span class="line">&#125;</span><br><span class="line">function three($str1, $str2)</span><br><span class="line">&#123;</span><br><span class="line">    debug_print_backtrace();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">one(&quot;Peter&quot;, &quot;Griffin&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">#0 three(Cleveland, Brown) called at [C:webfoldertest.php:8]</span><br><span class="line">#1 two(Glenn, Quagmire) called at [C:webfoldertest.php:4]</span><br><span class="line">#2 one(Peter, Griffin) called at [C:webfoldertest.php:15]</span><br></pre></td></tr></table></figure>
+
+<h3 id="error-get-last"><a href="#error-get-last" class="headerlink" title="error_get_last()"></a>error_get_last()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error_get_last() 函数获得最后发生的错误。</span><br><span class="line">该函数以数组的形式返回最后发生的错误。如果没有错误发生则返回 NULL。</span><br></pre></td></tr></table></figure>
+<p>返回的错误数组包含 4 个键名和键值：</p>
+<ul>
+<li>[type] - 错误类型</li>
+<li>[message] - 错误消息</li>
+<li>[file] - 发生错误所在的文件</li>
+<li>[line] - 发生错误所在的行</li>
+</ul>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debug_print_backtrace()</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo $test;</span><br><span class="line">    print_r(error_get_last());</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [type] &#x3D;&gt; 8</span><br><span class="line">    [message] &#x3D;&gt; Undefined variable: test</span><br><span class="line">    [file] &#x3D;&gt; C:webfoldertest.php</span><br><span class="line">    [line] &#x3D;&gt; 2</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="error-log"><a href="#error-log" class="headerlink" title="error_log()"></a>error_log()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">error_log() 函数向服务器错误记录、文件或远程目标发送一个错误。</span><br><span class="line">如果成功该函数返回 TRUE，如果失败该函数返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>返回的错误数组包含 4 个键名和键值：</p>
+<ul>
+<li>[type] - 错误类型</li>
+<li>[message] - 错误消息</li>
+<li>[file] - 发生错误所在的文件</li>
+<li>[line] - 发生错误所在的行</li>
+</ul>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error_log(error,type,destination,headers)</span><br></pre></td></tr></table></figure>
+<table>
+    <tr><th>参数</th><th>描述</th></tr>
+    <tr><td>error</td><td>必需。要记录的错误消息。</td></tr>
+    <tr><td>type</td><td>    可选。规定错误记录的类型。<br>
+                            可能的记录类型：<br>
+                            <ul>
+                                <li>0 - 默认。根据在 php.ini 文件中的 error_log 配置，错误被发送到服务器日志系统或文件。</li>
+                                <li>1 - 错误被发送到 destination 参数中的地址。只有该类型使用 headers 参数。</li>
+                                <li>2 - 通过 PHP debugging 连接来发送错误。该选项只在 PHP 3 中可用。</li>
+                                <li>3 - 错误发送到文件目标字符串。</li>
+                            </ul>
+                  </td>
+    </tr>
+    <tr><td>destination</td><td>可选。规定向何处发送错误消息。该参数的值依赖于 "type" 参数的值。</td></tr>
+    <tr><td>headers</td><td>可选。只在 "type" 参数为 1 时使用。规定附加的头部，比如 From, Cc 以及 Bcc。附加头部由 CRLF (\r\n) 分隔。
+注意：在发送电子邮件时，必须包含 From 头部。可以在 php.ini 文件中或者通过此参数设置。</td></tr>
+</table>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 下面的实例发送一封带有自定义错误的电子邮件：</span><br><span class="line">$test&#x3D;2;</span><br><span class="line"></span><br><span class="line">if ($test&gt;1)</span><br><span class="line">&#123;</span><br><span class="line">    error_log(&quot;A custom error has been triggered&quot;,1,&quot;someone@example.com&quot;,&quot;From: webmaster@example.com&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F; 上面代码接收到的邮件如下所示：</span><br><span class="line">A custom error has been triggered</span><br></pre></td></tr></table></figure>
+
+<h3 id="error-reporting"><a href="#error-reporting" class="headerlink" title="error_reporting()"></a>error_reporting()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">error_reporting() 函数规定报告哪个错误。</span><br><span class="line">该函数设置当前脚本的错误报告级别。</span><br><span class="line">该函数返回旧的错误报告级别。</span><br></pre></td></tr></table></figure>
+
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">error_reporting(report_level)</span><br></pre></td></tr></table></figure>
+<p>report_level</p>
+<table>
+<thead>
+<tr>
+<th>值</th>
+<th>常量</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>E_ERROR</td>
+<td>运行时致命的错误。不能修复的错误。停止执行脚本。</td>
+</tr>
+<tr>
+<td>2</td>
+<td>E_WARNING</td>
+<td>运行时非致命的错误。没有停止执行脚本。</td>
+</tr>
+<tr>
+<td>4</td>
+<td>E_PARSE</td>
+<td>编译时的解析错误。解析错误应该只由解析器生成。</td>
+</tr>
+<tr>
+<td>8</td>
+<td>E_NOTICE</td>
+<td>运行时的通知。脚本发现可能是一个错误，但也可能在正常运行脚本时发生。</td>
+</tr>
+<tr>
+<td>16</td>
+<td>E_CORE_ERROR</td>
+<td>PHP 启动时的致命错误。这就如同 PHP 核心的 E_ERROR。</td>
+</tr>
+<tr>
+<td>32</td>
+<td>E_CORE_WARNING    PHP</td>
+<td>启动时的非致命错误。这就如同 PHP 核心的 E_WARNING。</td>
+</tr>
+<tr>
+<td>64</td>
+<td>E_COMPILE_ERROR</td>
+<td>编译时致命的错误。这就如同由 Zend 脚本引擎生成的 E_ERROR。</td>
+</tr>
+<tr>
+<td>128</td>
+<td>E_COMPILE_WARNING</td>
+<td>编译时非致命的错误。这就如同由 Zend 脚本引擎生成的 E_WARNING。</td>
+</tr>
+<tr>
+<td>256</td>
+<td>E_USER_ERROR</td>
+<td>用户生成的致命错误。这就如同由程序员使用 PHP 函数 trigger_error() 生成的 E_ERROR。</td>
+</tr>
+<tr>
+<td>512</td>
+<td>E_USER_WARNING</td>
+<td>用户生成的非致命错误。这就如同由程序员使用 PHP 函数 trigger_error() 生成的 E_WARNING。</td>
+</tr>
+<tr>
+<td>1024</td>
+<td>E_USER_NOTICE</td>
+<td>用户生成的通知。这就如同由程序员使用 PHP 函数 trigger_error() 生成的 E_NOTICE。</td>
+</tr>
+<tr>
+<td>2048</td>
+<td>E_STRICT</td>
+<td>运行时的通知。PHP 建议您改变代码，以提高代码的互用性和兼容性。</td>
+</tr>
+<tr>
+<td>4096</td>
+<td>E_RECOVERABLE_ERROR</td>
+<td>可捕获的致命错误。这就如同一个可以由用户定义的句柄捕获的 E_ERROR（见 set_error_handler()）。</td>
+</tr>
+<tr>
+<td>8191</td>
+<td>E_ALL</td>
+<td>所有的错误和警告的级别，除了 E_STRICT（自 PHP 6.0 起，E_STRICT 将作为 E_ALL的一部分）。</td>
+</tr>
+<tr>
+<td>测试案例</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;&#x2F;Disable error reporting</span><br><span class="line">error_reporting(0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Report runtime errors</span><br><span class="line">error_reporting(E_ERROR | E_WARNING | E_PARSE);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Report all errors</span><br><span class="line">error_reporting(E_ALL);</span><br></pre></td></tr></table></figure></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id="restore-error-handler"><a href="#restore-error-handler" class="headerlink" title="restore_error_handler()"></a>restore_error_handler()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">restore_error_handler() 函数恢复之前的错误处理程序。</span><br><span class="line">该函数用于在通过 set_error_handler() 函数改变后恢复之前的错误处理程序。</span><br><span class="line">该函数总是返回 TRUE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">restore_error_handler()</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F;custom error handler function</span><br><span class="line">function customError($errno, $errstr, $errfile, $errline)</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;&lt;b&gt;Custom error:&lt;&#x2F;b&gt; [$errno] $errstr&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">    echo &quot; Error on line $errline in $errfile&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;set user-defined error handler</span><br><span class="line">set_error_handler(&quot;customError&quot;);</span><br><span class="line"></span><br><span class="line">$test&#x3D;2;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;trigger error</span><br><span class="line">if ($test&gt;1)</span><br><span class="line">&#123;</span><br><span class="line">    trigger_error(&quot;A custom error has been triggered&quot;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;restore built-in error handler</span><br><span class="line">restore_error_handler();</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;trigger error again</span><br><span class="line">if ($test&gt;1)</span><br><span class="line">&#123;</span><br><span class="line">    trigger_error(&quot;A custom error has been triggered&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Custom error: [1024] A custom error has been triggered</span><br><span class="line">Error on line 14 in C:webfoldertest.php</span><br><span class="line"></span><br><span class="line">Notice: A custom error has been triggered in</span><br><span class="line">C:webfoldertest.php on line 21</span><br></pre></td></tr></table></figure>
+
+<h3 id="restore-exception-handler"><a href="#restore-exception-handler" class="headerlink" title="restore_exception_handler()"></a>restore_exception_handler()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">restore_exception_handler() 函数恢复之前的异常处理程序。</span><br><span class="line">该函数用于在通过 set_exception_handler() 函数改变后恢复之前的异常处理程序。</span><br><span class="line">该函数总是返回 TRUE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">restore_exception_handler()</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">restore_exception_handler();</span><br><span class="line"></span><br><span class="line">throw new Exception(&#39;Uncaught Exception occured&#39;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Fatal error: Uncaught exception &#39;Exception&#39; with message</span><br><span class="line">&#39;Uncaught Exception occured&#39; in C:webfoldertest.php:4</span><br><span class="line">Stack trace: #0 &#123;main&#125; thrown in C:webfoldertest.php on line 4</span><br></pre></td></tr></table></figure>
+
+<h3 id="set-error-handler"><a href="#set-error-handler" class="headerlink" title="set_error_handler()"></a>set_error_handler()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set_error_handler() 函数设置用户自定义的错误处理函数。</span><br><span class="line">该函数用于创建运行期间的用户自己的错误处理方法。</span><br><span class="line">该函数返回旧的错误处理程序，如果失败则返回 NULL。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">set_error_handler(error_function,error_types)</span><br><span class="line">error_function	必需。规定发生错误时运行的函数。</span><br><span class="line">error_types	      可选。规定在哪个错误报告级别会显示用户定义的错误。默认是 &quot;E_ALL&quot;。</span><br><span class="line"></span><br><span class="line">error_function(error_level, error_message, error_file, error_line, error_context)</span><br><span class="line">error_level	    必需的。规定用户自定义的错误的错误报告级别。必须是值数字。可能的错误报告级别详见下面的表格。</span><br><span class="line">error_message	必需的。规定用户自定义的错误的错误消息。</span><br><span class="line">error_file	    可选。规定发生错误的文件名。</span><br><span class="line">error_line	    可选。规定发生错误的行号。</span><br><span class="line">error_context	可选。规定指向活跃符号表中发生错误的数组。换句话说，error_context 将包含一个说明每个变量引发错误的存在范围的数组。</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">E_WARNING	运行时非致命的错误。没有停止执行脚本。</span><br><span class="line">E_NOTICE	运行时的通知。脚本发现可能是一个错误，但也可能在正常运行脚本时发生。</span><br><span class="line">E_USER_ERROR	用户生成的致命错误。这就如同由程序员使用 PHP 函数 trigger_error() 生成的 E_ERROR。</span><br><span class="line">E_USER_WARNING	用户生成的非致命错误。这就如同由程序员使用 PHP 函数 trigger_error() 生成的 E_WARNING。</span><br><span class="line">E_USER_NOTICE	用户生成的通知。这就如同由程序员使用 PHP 函数 trigger_error() 生成的 E_NOTICE。</span><br><span class="line">E_RECOVERABLE_ERROR	可捕获的致命错误。这就如同一个可以由用户定义的句柄捕获的 E_ERROR（见 set_error_handler()）。</span><br><span class="line">E_ALL	所有的错误和警告的级别，除了 E_STRICT（自 PHP 6.0 起，E_STRICT 将作为 E_ALL的一部分）。</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F;error handler function</span><br><span class="line">function customError($errno, $errstr, $errfile, $errline)</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;&lt;b&gt;Custom error:&lt;&#x2F;b&gt; [$errno] $errstr&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">    echo &quot; Error on line $errline in $errfile&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">    echo &quot;Ending Script&quot;;</span><br><span class="line">    die();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;set error handler</span><br><span class="line">set_error_handler(&quot;customError&quot;);</span><br><span class="line"></span><br><span class="line">$test&#x3D;2;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;trigger error</span><br><span class="line">if ($test&gt;1)</span><br><span class="line">&#123;</span><br><span class="line">    trigger_error(&quot;A custom error has been triggered&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Custom error: [1024] A custom error has been triggered</span><br><span class="line">Error on line 19 in C:webfoldertest.php</span><br><span class="line">Ending Script</span><br></pre></td></tr></table></figure>
+
+<h3 id="set-exception-handler"><a href="#set-exception-handler" class="headerlink" title="set_exception_handler()"></a>set_exception_handler()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set_exception_handler() 函数设置用户自定义的异常处理函数。</span><br><span class="line">该函数用于创建运行期间的用户自己的异常处理方法。</span><br><span class="line">该函数返回旧的异常处理程序，如果失败则返回 NULL。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set_exception_handler(exception_function)</span><br><span class="line">exception_function	必需。规定未捕获的异常发生时调用的函数。</span><br><span class="line">该函数必须在调用 set_exception_handler() 函数之前定义。这个异常处理函数需要需要一个参数，即抛出的 exception 对象。</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&lt;?php</span><br><span class="line">function myException($exception)</span><br><span class="line">&#123;</span><br><span class="line">echo &quot;&lt;b&gt;Exception:&lt;&#x2F;b&gt; &quot; , $exception-&gt;getMessage();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">set_exception_handler(&#39;myException&#39;);</span><br><span class="line"></span><br><span class="line">throw new Exception(&#39;Uncaught Exception occurred&#39;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Exception: Uncaught Exception occurred</span><br></pre></td></tr></table></figure>
+
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><blockquote>
+<p> <a href="https://www.runoob.com/php/php-ref-directory.html" target="_blank" rel="noopener">《PHP 5 Directory 函数 | 菜鸟教程》</a></p>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://yoursite.com/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-id="ckcidw87w0000rc9ubsbxab0n" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2020/07/05/php%E7%AC%AC%E4%BA%94%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PHP 第五周函数学习记录</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/Code/">Code</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/Hexo/" style="font-size: 10px;">Hexo</a> <a href="/tags/PHP/" style="font-size: 20px;">PHP</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/07/">七月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/06/">六月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">PHP第六周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/07/05/php%E7%AC%AC%E4%BA%94%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">PHP 第五周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/28/PHP-%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">PHP 第四周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/21/php-%E7%AC%AC%E4%B8%89%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">PHP 第三周函数学习记录</a>
+          </li>
+        
+          <li>
+            <a href="/2020/06/14/php2week/">PHP 第二周函数学习记录</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2020 zerocoder<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">文章</a>
+  
+    <a href="/categories/Code/" class="mobile-nav-link">Code</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+  
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
