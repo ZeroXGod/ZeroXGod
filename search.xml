@@ -1607,7 +1607,7 @@
       </tags>
   </entry>
   <entry>
-    <title>PHP第六周函数学习记录</title>
+    <title>PHP 第六周函数学习记录</title>
     <url>/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="timezone-identifiers-list"><a href="#timezone-identifiers-list" class="headerlink" title="timezone_identifiers_list()"></a>timezone_identifiers_list()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">返回带有所有时区标识符的数值数组。</span><br></pre></td></tr></table></figure>
