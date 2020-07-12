@@ -15,6 +15,8 @@
 <li>配置 SSH key</li>
 <li>部署 hexo 到 github</li>
 </ol>
+<a id="more"></a>
+
 <h2 id="安装-git"><a href="#安装-git" class="headerlink" title="安装 git"></a>安装 git</h2><p>直接<a href="https://git-scm.com/downloads" target="_blank" rel="noopener">官网</a>下载安装即可。</p>
 <h2 id="安装-node-js"><a href="#安装-node-js" class="headerlink" title="安装 node.js"></a>安装 node.js</h2><p><a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">官网</a>下载安装。<br>重启电脑，执行以下命令检测是否安装成功。</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
@@ -90,6 +92,8 @@
     <url>/2020/06/14/php1week/</url>
     <content><![CDATA[<h3 id="array-change-key-case"><a href="#array-change-key-case" class="headerlink" title="array_change_key_case()"></a>array_change_key_case()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数将数组的所有的键都转换为大写字母或小写字母</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 <p>用法</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">array_change_key_case(array,case)</span><br></pre></td></tr></table></figure>
 <p>测试案例</p>
@@ -329,6 +333,8 @@
     <url>/2020/06/14/php2week/</url>
     <content><![CDATA[<h3 id="array-pad"><a href="#array-pad" class="headerlink" title="array_pad()"></a>array_pad()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数将指定数量的带有指定值的元素插入到数组中。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 <p>用法</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">array_pad(array, size, value)</span><br></pre></td></tr></table></figure>
 <p>测试案例</p>
@@ -688,6 +694,8 @@
     <url>/2020/06/21/php-%E7%AC%AC%E4%B8%89%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="natsort"><a href="#natsort" class="headerlink" title="natsort()"></a>natsort()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数用&quot;自然排序&quot;算法对数组进行排序。键值保留它们原始的键名。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 <p>用法</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">natsort(array)</span><br></pre></td></tr></table></figure>
 <p>测试案例</p>
@@ -1018,6 +1026,8 @@
     <url>/2020/06/28/PHP-%E7%AC%AC%E5%9B%9B%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="curl-escape"><a href="#curl-escape" class="headerlink" title="curl_escape()"></a>curl_escape()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">对给定的字符串进行URL编码。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 <p>用法</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">string curl_escape ( resource $ch , string $str )</span><br></pre></td></tr></table></figure>
 <p>测试案例</p>
@@ -1205,6 +1215,8 @@
     <url>/2020/07/05/php%E7%AC%AC%E4%BA%94%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="checkdate"><a href="#checkdate" class="headerlink" title="checkdate()"></a>checkdate()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数用于验证格利高里日期。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 <p>用法</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">checkdate(month,day,year);</span><br><span class="line">month	必需。一个从 1 到 12 的数字，规定月。</span><br><span class="line">day	    必需。一个从 1 到 31 的数字，规定日。</span><br><span class="line">year	必需。一个从 1 到 32767 的数字，规定年。</span><br></pre></td></tr></table></figure>
 <p>测试案例</p>
@@ -1599,6 +1611,8 @@
     <url>/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
     <content><![CDATA[<h3 id="timezone-identifiers-list"><a href="#timezone-identifiers-list" class="headerlink" title="timezone_identifiers_list()"></a>timezone_identifiers_list()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">返回带有所有时区标识符的数值数组。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
 <p>用法</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">timezone_identifiers_list(what,country);</span><br><span class="line"></span><br><span class="line">what	可选。规定一个 DateTimeZone 类常量</span><br><span class="line">        1 &#x3D; AFRICA</span><br><span class="line">        2 &#x3D; AMERICA</span><br><span class="line">        4 &#x3D; ANTARCTICA</span><br><span class="line">        8 &#x3D; ARCTIC</span><br><span class="line">        16 &#x3D; ASIA</span><br><span class="line">        32 &#x3D; ATLANTIC</span><br><span class="line">        64 &#x3D; AUSTRALIA</span><br><span class="line">        128 &#x3D; EUROPE</span><br><span class="line">        256 &#x3D; INDIAN</span><br><span class="line">        512 &#x3D; PACIFIC</span><br><span class="line">        1024 &#x3D; UTC</span><br><span class="line">        2047 &#x3D; ALL</span><br><span class="line">        4095 &#x3D; ALL_WITH_BC</span><br><span class="line">        4096 &#x3D; PER_COUNTRY</span><br></pre></td></tr></table></figure>
 <p>测试案例</p>
