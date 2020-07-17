@@ -941,6 +941,32 @@ a.article-title:hover {
   max-width: 100%;
   margin: 0 auto;
 }
+#toc {
+  display: inline;
+  float: left;
+  width: 10.333333%;
+  margin: 0 0.833333333333333%;
+  color: #777;
+  text-shadow: 0 1px #fff;
+  background: #ddd;
+  -webkit-box-shadow: 0 -1px 4px #ccc inset;
+  -webkit-box-shadow: 0 -1px 4px #ccc inset;
+  box-shadow: 0 -1px 4px #ccc inset;
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 3px;
+  color: #258fb8;
+  text-decoration: none;
+  margin-top: 77px;
+  margin-left: 60px;
+}
+.toc-link {
+  text-decoration: none;
+}
+.toc-text {
+  color: #258fb8;
+  text-decoration: none;
+}
 #comments {
   background: #fff;
   -webkit-box-shadow: 1px 2px 3px #ddd;
