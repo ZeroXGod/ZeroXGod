@@ -1909,17 +1909,10 @@
 <td>E_ALL</td>
 <td>所有的错误和警告的级别，除了 E_STRICT（自 PHP 6.0 起，E_STRICT 将作为 E_ALL的一部分）。</td>
 </tr>
-<tr>
-<td>测试案例</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;Disable error reporting</span><br><span class="line">error_reporting(0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Report runtime errors</span><br><span class="line">error_reporting(E_ERROR | E_WARNING | E_PARSE);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Report all errors</span><br><span class="line">error_reporting(E_ALL);</span><br></pre></td></tr></table></figure></td>
-<td></td>
-<td></td>
-</tr>
 </tbody></table>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F;Disable error reporting</span><br><span class="line">error_reporting(0);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Report runtime errors</span><br><span class="line">error_reporting(E_ERROR | E_WARNING | E_PARSE);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Report all errors</span><br><span class="line">error_reporting(E_ALL);</span><br></pre></td></tr></table></figure>
+
 <h3 id="restore-error-handler"><a href="#restore-error-handler" class="headerlink" title="restore_error_handler()"></a>restore_error_handler()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">restore_error_handler() 函数恢复之前的错误处理程序。</span><br><span class="line">该函数用于在通过 set_error_handler() 函数改变后恢复之前的错误处理程序。</span><br><span class="line">该函数总是返回 TRUE。</span><br></pre></td></tr></table></figure>
 
