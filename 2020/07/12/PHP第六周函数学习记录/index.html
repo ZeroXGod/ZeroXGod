@@ -15,7 +15,7 @@
 <meta property="og:description" content="timezone_identifiers_list()作用 1返回带有所有时区标识符的数值数组。">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-07-12T01:10:29.000Z">
-<meta property="article:modified_time" content="2020-07-17T09:54:29.249Z">
+<meta property="article:modified_time" content="2020-07-18T02:37:26.720Z">
 <meta property="article:author" content="zerocoder">
 <meta property="article:tag" content="PHP">
 <meta name="twitter:card" content="summary">
@@ -248,7 +248,54 @@
 
 <h3 id="debug-backtrace"><a href="#debug-backtrace" class="headerlink" title="debug_backtrace()"></a>debug_backtrace()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">debug_backtrace() 函数生成 backtrace。</span><br><span class="line">该函数显示由 debug_backtrace() 函数代码生成的数据。</span><br></pre></td></tr></table></figure>
-<p>返回一个关联数组。下面是可能返回的元素：<br>| 名称     | 类型    | 描述                                                         |<br>| ——– | ——- | ———————————————————— |<br>| function | string  | 当前的函数名。                                               |<br>| line     | integer | 当前的行号。                                                 |<br>| file     | string  | 当前的文件名。                                               |<br>| class    | string  | 当前的类名。                                                 |<br>| object   | object  | 当前对象。                                                   |<br>| type     | string  | 当前的调用类型，可能的调用：<br>返回：”-&gt;” - 方法调用<br>返回：”::” - 静态方法调用<br>返回 nothing - 函数调用<br> |<br>| args     | array   | 如果在函数中，列出函数参数。如果在被引用的文件中，列出被引用的文件名 |<br>用法</p>
+
+
+<p>返回一个关联数组。下面是可能返回的元素：</p>
+<table>
+<thead>
+<tr>
+<th>名称</th>
+<th>类型</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>function</td>
+<td>string</td>
+<td>当前的函数名。</td>
+</tr>
+<tr>
+<td>line</td>
+<td>integer</td>
+<td>当前的行号。</td>
+</tr>
+<tr>
+<td>file</td>
+<td>string</td>
+<td>当前的文件名。</td>
+</tr>
+<tr>
+<td>class</td>
+<td>string</td>
+<td>当前的类名。</td>
+</tr>
+<tr>
+<td>object</td>
+<td>object</td>
+<td>当前对象。</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>当前的调用类型，可能的调用：<br>返回：”-&gt;” - 方法调用<br>返回：”::” - 静态方法调用<br>返回 nothing - 函数调用</td>
+</tr>
+<tr>
+<td>args</td>
+<td>array</td>
+<td>如果在函数中，列出函数参数。如果在被引用的文件中，列出被引用的文件名</td>
+</tr>
+</tbody></table>
+<p>用法</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">debug_backtrace()</span><br></pre></td></tr></table></figure>
 <p>测试案例</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">function one($str1, $str2)</span><br><span class="line">&#123;</span><br><span class="line">    two(&quot;Glenn&quot;, &quot;Quagmire&quot;);</span><br><span class="line">&#125;</span><br><span class="line">function two($str1, $str2)</span><br><span class="line">&#123;</span><br><span class="line">    three(&quot;Cleveland&quot;, &quot;Brown&quot;);</span><br><span class="line">&#125;</span><br><span class="line">function three($str1, $str2)</span><br><span class="line">&#123;</span><br><span class="line">    print_r(debug_backtrace());</span><br><span class="line">&#125;</span><br><span class="line">one(&quot;Peter&quot;, &quot;Griffin&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
