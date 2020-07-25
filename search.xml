@@ -1834,15 +1834,6 @@
 <p>结果</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1593657268</span><br></pre></td></tr></table></figure>
 
-<h3 id="date-timestamp-get-1"><a href="#date-timestamp-get-1" class="headerlink" title="date_timestamp_get()"></a>date_timestamp_get()</h3><p>作用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数返回 Unix 时间戳。</span><br></pre></td></tr></table></figure>
-<p>用法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">date_timestamp_get(object);</span><br></pre></td></tr></table></figure>
-<p>测试案例</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$date&#x3D;date_create();</span><br><span class="line">echo date_timestamp_get($date);</span><br></pre></td></tr></table></figure>
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1593657268</span><br></pre></td></tr></table></figure>
-
 <h3 id="date-timestamp-set"><a href="#date-timestamp-set" class="headerlink" title="date_timestamp_set()"></a>date_timestamp_set()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数设置基于 Unix 时间戳的日期和时间</span><br></pre></td></tr></table></figure>
 <p>用法</p>
@@ -1862,15 +1853,6 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Europe&#x2F;Paris</span><br></pre></td></tr></table></figure>
 
 <h3 id="date-timezone-set"><a href="#date-timezone-set" class="headerlink" title="date_timezone_set()"></a>date_timezone_set()</h3><p>作用</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数 DateTime 对象的时区</span><br></pre></td></tr></table></figure>
-<p>用法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">date_timezone_set(object,timezone);</span><br></pre></td></tr></table></figure>
-<p>测试案例</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$date&#x3D;date_create(&quot;2013-05-25&quot;,timezone_open(&quot;Indian&#x2F;Kerguelen&quot;));</span><br><span class="line">echo date_format($date,&quot;Y-m-d H:i:sP&quot;) . &quot;&lt;br&gt;&quot;;</span><br><span class="line"></span><br><span class="line">date_timezone_set($date,timezone_open(&quot;Europe&#x2F;Paris&quot;));</span><br><span class="line">echo date_format($date,&quot;Y-m-d H:i:sP&quot;);</span><br></pre></td></tr></table></figure>
-<p>结果</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">2013-05-25 00:00:00+05:00</span><br><span class="line">2013-05-24 21:00:00+02:00</span><br></pre></td></tr></table></figure>
-
-<h3 id="date-timezone-set-1"><a href="#date-timezone-set-1" class="headerlink" title="date_timezone_set()"></a>date_timezone_set()</h3><p>作用</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数 DateTime 对象的时区</span><br></pre></td></tr></table></figure>
 <p>用法</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">date_timezone_set(object,timezone);</span><br></pre></td></tr></table></figure>
@@ -2335,6 +2317,69 @@
       </categories>
       <tags>
         <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Composer 学习笔记</title>
+    <url>/2020/07/25/Composer-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="什么是-Composer？"><a href="#什么是-Composer？" class="headerlink" title="什么是 Composer？"></a>什么是 Composer？</h3><p>Composer 是 PHP 的一个依赖管理工具。</p>
+<h3 id="Compser-的作用"><a href="#Compser-的作用" class="headerlink" title="Compser 的作用"></a>Compser 的作用</h3><ul>
+<li>引用代码到项目中</li>
+<li>管理引用的代码</li>
+</ul>
+<h3 id="Composer-的好处"><a href="#Composer-的好处" class="headerlink" title="Composer 的好处"></a>Composer 的好处</h3><ul>
+<li>模块化，降低代码重用成本</li>
+<li>统一的第三方代码组织方式</li>
+<li>更科学的版本更新</li>
+</ul>
+<h3 id="Composer-工作原理"><a href="#Composer-工作原理" class="headerlink" title="Composer 工作原理"></a>Composer 工作原理</h3><p>composer 下载时先到 Composer 官方数据源（Packagist）搜索包，获取包的数据。然后再到Github 下载包的对应代码。</p>
+<h3 id="Composer-添加包"><a href="#Composer-添加包" class="headerlink" title="Composer 添加包"></a>Composer 添加包</h3><p>创建一个 <code>composer.json</code> 文件</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;require&quot;: &#123;</span><br><span class="line">        &quot;monolog&#x2F;monolog&quot;: &quot;1.2.*&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>接下来只要运行以下命令即可安装依赖包</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer install</span><br></pre></td></tr></table></figure>
+<p>除了使用 install 命令外，我们也可以使用 require 命令快速的安装一个依赖而不需要手动在 composer.json 里添加依赖信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$ composer require monolog&#x2F;monolog</span><br></pre></td></tr></table></figure>
+<h3 id="Composer-更新包"><a href="#Composer-更新包" class="headerlink" title="Composer 更新包"></a>Composer 更新包</h3><p>更新所有依赖</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer update</span><br></pre></td></tr></table></figure>
+
+<p>更新指定的包</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer update monolog&#x2F;monolog</span><br></pre></td></tr></table></figure>
+
+
+<p>更新指定的多个包</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer update monolog&#x2F;monolog</span><br></pre></td></tr></table></figure>
+
+<p>还可以通过通配符匹配包</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer update monolog&#x2F;monolog symfony&#x2F;*</span><br></pre></td></tr></table></figure>
+<h3 id="Composer-删除包"><a href="#Composer-删除包" class="headerlink" title="Composer 删除包"></a>Composer 删除包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer remove monolog&#x2F;monolog</span><br></pre></td></tr></table></figure>
+<h3 id="搜索包"><a href="#搜索包" class="headerlink" title="搜索包"></a>搜索包</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer search monolog</span><br></pre></td></tr></table></figure>
+<p>只想输出包名可以使用 –only-name 参数</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer search --only-name monolog</span><br></pre></td></tr></table></figure>
+
+<h3 id="列出使用的包"><a href="#列出使用的包" class="headerlink" title="列出使用的包"></a>列出使用的包</h3><p>列出所有已经安装的包</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer show</span><br></pre></td></tr></table></figure>
+
+<p>可以通过通配符进行筛选</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer show monolog&#x2F;*</span><br></pre></td></tr></table></figure>
+
+<p>显示具体某个包的信息</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">composer show monolog&#x2F;monolog</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/27943241" target="_blank" rel="noopener">基于 Composer 的 PHP 模块化开发 - 知乎</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.cnblogs.com/fornorth/p/8857528.html" target="_blank" rel="noopener">composer原理分析 - 向北票 - 博客园</a></p>
+</blockquote>
+<blockquote>
+<p><a href="https://www.runoob.com/w3cnote/composer-install-and-usage.html" target="_blank" rel="noopener">Composer 安装与使用 | 菜鸟教程</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>Composer</tag>
       </tags>
   </entry>
 </search>

@@ -5,14 +5,19 @@
   
 
   
-  <title>zerocoder</title>
+  <title>Composer 学习笔记 | zerocoder</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="zerocoder">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="什么是 Composer？Composer 是 PHP 的一个依赖管理工具。 Compser 的作用 引用代码到项目中 管理引用的代码  Composer 的好处 模块化，降低代码重用成本 统一的第三方代码组织方式 更科学的版本更新  Composer 工作原理composer 下载时先到 Composer 官方数据源（Packagist）搜索包，获取包的数据。然后再到Github 下载包的对应代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Composer 学习笔记">
+<meta property="og:url" content="http://yoursite.com/2020/07/25/Composer-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="zerocoder">
+<meta property="og:description" content="什么是 Composer？Composer 是 PHP 的一个依赖管理工具。 Compser 的作用 引用代码到项目中 管理引用的代码  Composer 的好处 模块化，降低代码重用成本 统一的第三方代码组织方式 更科学的版本更新  Composer 工作原理composer 下载时先到 Composer 官方数据源（Packagist）搜索包，获取包的数据。然后再到Github 下载包的对应代">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-07-25T03:39:40.000Z">
+<meta property="article:modified_time" content="2020-07-25T03:43:50.458Z">
 <meta property="article:author" content="zerocoder">
+<meta property="article:tag" content="Composer">
 <meta name="twitter:card" content="summary">
   
   
@@ -64,10 +69,12 @@
   </div>
 </header>
       
+  <aside id="toc" class="toc-article">
+          <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是-Composer？"><span class="toc-text">什么是 Composer？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Compser-的作用"><span class="toc-text">Compser 的作用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composer-的好处"><span class="toc-text">Composer 的好处</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composer-工作原理"><span class="toc-text">Composer 工作原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composer-添加包"><span class="toc-text">Composer 添加包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composer-更新包"><span class="toc-text">Composer 更新包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Composer-删除包"><span class="toc-text">Composer 删除包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#搜索包"><span class="toc-text">搜索包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#列出使用的包"><span class="toc-text">列出使用的包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考"><span class="toc-text">参考</span></a></li></ol>
+  </aside>
+
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-Composer-学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-Composer-学习笔记" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/07/25/Composer-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="article-date">
   <time datetime="2020-07-25T03:39:40.000Z" itemprop="datePublished">2020-07-25</time>
@@ -84,8 +91,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/25/Composer-%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">Composer 学习笔记</a>
+    <h1 class="article-title" itemprop="name">
+      Composer 学习笔记
     </h1>
   
 
@@ -157,231 +164,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-PHP-第七周函数学习记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/19/PHP-%E7%AC%AC%E4%B8%83%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="article-date">
-  <time datetime="2020-07-19T02:25:48.000Z" itemprop="datePublished">2020-07-19</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Code/">Code</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/19/PHP-%E7%AC%AC%E4%B8%83%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">PHP 第七周函数学习记录</a>
-    </h1>
+    <a href="/2020/07/19/PHP-%E7%AC%AC%E4%B8%83%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">PHP 第七周函数学习记录</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="trigger-error"><a href="#trigger-error" class="headerlink" title="trigger_error()"></a>trigger_error()</h3><p>作用</p>
-        
-          <p class="article-more-link">
-            <a href="/2020/07/19/PHP-%E7%AC%AC%E4%B8%83%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-     <!-- <a data-url="http://yoursite.com/2020/07/19/PHP-%E7%AC%AC%E4%B8%83%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-id="ckcsgwubf0000h89u4h7tal4g" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
-
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-关于我" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/12/%E5%85%B3%E4%BA%8E%E6%88%91/" class="article-date">
-  <time datetime="2020-07-12T04:22:02.000Z" itemprop="datePublished">2020-07-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E5%85%B3%E4%BA%8E%E6%88%91/">关于我</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/12/%E5%85%B3%E4%BA%8E%E6%88%91/">关于我</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="建博目的"><a href="#建博目的" class="headerlink" title="建博目的"></a>建博目的</h2><ul>
-<li><p>记录学习笔记。</p>
-</li>
-<li><p>分享手办开箱。（怎么开心，怎么来）</p>
-</li>
-</ul>
-<h2 id="技术栈"><a href="#技术栈" class="headerlink" title="技术栈"></a>技术栈</h2><p>PHP/Laravel/TP/fastadmin/小程序/公众号开发</p>
-<ul>
-<li><p>PHP 一般水平（正在熟悉内置 PHP 函数）</p>
-</li>
-<li><p>Laravel 做过个人博客，学过一个电商网站</p>
-</li>
-<li><p>TP  开发过项目</p>
-</li>
-<li><p>fastadmin 开发过项目</p>
-</li>
-<li><p>小程序 开发过项目 负责接口编写，以及 js 内调用接口的数据处理</p>
-</li>
-</ul>
-<h2 id="爱好"><a href="#爱好" class="headerlink" title="爱好"></a>爱好</h2><p>游戏爱好者/电影爱好者/高达爱好者/手办爱好者/漫画爱好者</p>
-<ul>
-<li><p>游戏：<code>ps4</code>  <code>ps3</code> <code>ns</code> <code>3ds</code> <code>psp</code> <code>psv</code> 这些都玩。王者也打，本命英雄橘子。英雄联盟的话，只爱玩亚索 无他快乐就行（段位黑铁-人机水平。不过现在不玩了，比赛还是会看）现在主玩<code>ps4</code>、<code>ns</code>、王者。</p>
-</li>
-<li><p>电影：豆瓣排行榜看下来，看了百分之八十吧</p>
-</li>
-<li><p>高达：主角机爱好者，最喜欢强袭自由。</p>
-</li>
-<li><p>手办：龙珠、剑心、两仪式  暂时买了这些。</p>
-</li>
-<li><p>漫画：收藏了龙珠 剑心 东京喰种 棋魂 钢之炼金术师 …</p>
-</li>
-</ul>
-
-      
-    </div>
-    <footer class="article-footer">
-     <!-- <a data-url="http://yoursite.com/2020/07/12/%E5%85%B3%E4%BA%8E%E6%88%91/" data-id="ckcq69uuh000kis9uex24421u" class="article-share-link">Share</a>-->
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-PHP第六周函数学习记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="article-date">
-  <time datetime="2020-07-12T01:10:29.000Z" itemprop="datePublished">2020-07-12</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Code/">Code</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">PHP 第六周函数学习记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="timezone-identifiers-list"><a href="#timezone-identifiers-list" class="headerlink" title="timezone_identifiers_list()"></a>timezone_identifiers_list()</h3><p>作用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">返回带有所有时区标识符的数值数组。</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-     <!-- <a data-url="http://yoursite.com/2020/07/12/PHP%E7%AC%AC%E5%85%AD%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-id="ckcq69utk0001is9uakpv0jf1" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-php第五周函数学习记录" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/07/05/php%E7%AC%AC%E4%BA%94%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="article-date">
-  <time datetime="2020-07-05T02:07:30.000Z" itemprop="datePublished">2020-07-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Code/">Code</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/07/05/php%E7%AC%AC%E4%BA%94%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">PHP 第五周函数学习记录</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="checkdate"><a href="#checkdate" class="headerlink" title="checkdate()"></a>checkdate()</h3><p>作用</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">函数用于验证格利高里日期。</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2020/07/05/php%E7%AC%AC%E4%BA%94%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/#more">Read More</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-     <!-- <a data-url="http://yoursite.com/2020/07/05/php%E7%AC%AC%E4%BA%94%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" data-id="ckcq69uue000his9udwg1d6ql" class="article-share-link">Share</a>-->
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/PHP/" rel="tag">PHP</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"> &gt;</a>
-  </nav>
 
 </section>
         
