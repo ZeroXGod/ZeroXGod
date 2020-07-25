@@ -2327,6 +2327,8 @@
 <li>引用代码到项目中</li>
 <li>管理引用的代码</li>
 </ul>
+<a id="more"></a>
+
 <h3 id="Composer-的好处"><a href="#Composer-的好处" class="headerlink" title="Composer 的好处"></a>Composer 的好处</h3><ul>
 <li>模块化，降低代码重用成本</li>
 <li>统一的第三方代码组织方式</li>
