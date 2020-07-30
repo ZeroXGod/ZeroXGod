@@ -2384,4 +2384,409 @@
         <tag>Composer</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PHP 第八周函数学习笔记</title>
+    <url>/2020/07/30/PHP-%E7%AC%AC%E5%85%AB%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h3 id="fileinode"><a href="#fileinode" class="headerlink" title="fileinode()"></a>fileinode()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileinode() 函数返回指定文件的 inode 编号。</span><br><span class="line">如果成功，该函数返回指定文件的 inode 编号。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileinode(filename)</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo fileinode(&quot;test.txt&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="filemtime"><a href="#filemtime" class="headerlink" title="filemtime()"></a>filemtime()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filemtime() 函数返回文件内容的上次修改时间。</span><br><span class="line">如果成功，该函数将以 Unix 时间戳形式返回文件内容的上次修改时间。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filemtime(filename)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo filemtime(&quot;test.txt&quot;);</span><br><span class="line">echo &quot;&lt;br &#x2F;&gt;&quot;;</span><br><span class="line">echo &quot;Last modified: &quot;.date(&quot;F d Y H:i:s.&quot;,filemtime(&quot;test.txt&quot;));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1139919766</span><br><span class="line">Last modified: February 14 2006 13:22:46.</span><br></pre></td></tr></table></figure>
+
+<h3 id="fileowner"><a href="#fileowner" class="headerlink" title="fileowner()"></a>fileowner()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileowner() 函数返回指定文件的用户 ID（所有者）。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回用户 ID。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileowner(filename)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br><span class="line"></span><br><span class="line">注释：该函数不能在 Windows 系统上运行。</span><br><span class="line"></span><br><span class="line">提示：请使用 posix_getpwuid() 来把用户 ID 转换为用户名。</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo fileowner(&quot;test.txt&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="fileperms"><a href="#fileperms" class="headerlink" title="fileperms()"></a>fileperms()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileperms() 函数返回文件或目录的权限。</span><br><span class="line">如果成功，该函数以数字形式返回权限。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fileperms(filename)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br><span class="line"></span><br><span class="line">注释：该函数不能在 Windows 系统上运行。</span><br><span class="line"></span><br><span class="line">提示：请使用 posix_getpwuid() 来把用户 ID 转换为用户名。</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo fileperms(&quot;test.txt&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">33206</span><br></pre></td></tr></table></figure>
+
+<h3 id="filesize"><a href="#filesize" class="headerlink" title="filesize()"></a>filesize()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filesize() 函数返回指定文件的大小。</span><br><span class="line">如果成功，该函数返回文件大小的字节数。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filesize(filename)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo filesize(&quot;test.txt&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">20</span><br></pre></td></tr></table></figure>
+
+<h3 id="filetype"><a href="#filetype" class="headerlink" title="filetype()"></a>filetype()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filetype() 函数返回指定文件或目录的类型。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回 7 种可能的值之一。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>可能的返回值：</p>
+<ul>
+<li>fifo</li>
+<li>char</li>
+<li>dir</li>
+<li>block</li>
+<li>link</li>
+<li>file</li>
+<li>unknown</li>
+</ul>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">filetype(filename)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo filetype(&quot;test.txt&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">file</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="flock"><a href="#flock" class="headerlink" title="flock()"></a>flock()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flock() 函数锁定或释放文件。</span><br><span class="line">如果成功，该函数返回 TRUE。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">flock(file,lock,block)</span><br><span class="line">lock	必需。规定要使用哪种锁定类型。</span><br><span class="line">        可能的值：</span><br><span class="line">            LOCK_SH - 共享锁定（读取的程序）。允许其他进程访问该文件。</span><br><span class="line">            LOCK_EX - 独占锁定（写入的程序）。防止其他进程访问该文件。</span><br><span class="line">            LOCK_UN - 释放一个共享锁定或独占锁定</span><br><span class="line">            LOCK_NB - 锁定的情况下避免阻塞其他进程。</span><br><span class="line">block	可选。若设置为 1，则当进行锁定时阻塞其他进程。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：这些锁仅在当前的 PHP 进程中使用。如果权限允许，其他的进程可修改或删除一个 PHP-locked 文件。</span><br><span class="line">注释：flock() 在 Windows 下具有强制性。</span><br><span class="line">提示：可以通过 fclose() 来释放锁定操作，脚本执行完成时会自动调用。</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line"></span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;w+&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; exclusive lock</span><br><span class="line">if (flock($file,LOCK_EX)) &#123;</span><br><span class="line">    fwrite($file,&quot;Write something&quot;);</span><br><span class="line">    &#x2F;&#x2F; release lock</span><br><span class="line">    flock($file,LOCK_UN);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo &quot;Error locking file!&quot;;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="fnmatch"><a href="#fnmatch" class="headerlink" title="fnmatch()"></a>fnmatch()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fnmatch() 函数根据指定的模式来匹配文件名或字符串。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fnmatch(pattern,string,flags)</span><br><span class="line">pattern	必需。规定要检索的模式。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数无法在 Windows 平台上使用。</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$txt &#x3D; &quot;My car is darkgrey&quot;;</span><br><span class="line">if (fnmatch(&quot;*gr[ae]y&quot;,$txt))</span><br><span class="line">&#123;</span><br><span class="line">    echo &quot;some form of gray ...&quot;;</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo &quot;NO&quot;;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">some form of gray ...</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="fopen"><a href="#fopen" class="headerlink" title="fopen()"></a>fopen()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fopen() 函数打开一个文件或 URL。</span><br><span class="line">如果 fopen() 失败，它将返回 FALSE 并附带错误信息。您可以通过在函数名前面添加一个 &#39;@&#39; 来隐藏错误输出。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fopen(filename,mode,include_path,context)</span><br><span class="line">mode	必需。规定您请求到该文件&#x2F;流的访问类型。</span><br><span class="line">        可能的值：</span><br><span class="line">        &quot;r&quot; （只读方式打开，将文件指针指向文件头）</span><br><span class="line">        &quot;r+&quot; （读写方式打开，将文件指针指向文件头）</span><br><span class="line">        &quot;w&quot; （写入方式打开，清除文件内容，如果文件不存在则尝试创建之）</span><br><span class="line">        &quot;w+&quot; （读写方式打开，清除文件内容，如果文件不存在则尝试创建之）</span><br><span class="line">        &quot;a&quot; （写入方式打开，将文件指针指向文件末尾进行写入，如果文件不存在则尝试创建之）</span><br><span class="line">        &quot;a+&quot; （读写方式打开，通过将文件指针指向文件末尾进行写入来保存文件内容）</span><br><span class="line">        &quot;x&quot; （创建一个新的文件并以写入方式打开，如果文件已存在则返回 FALSE 和一个错误）</span><br><span class="line">        &quot;x+&quot; （创建一个新的文件并以读写方式打开，如果文件已存在则返回 FALSE 和一个错误）</span><br><span class="line">include_path	可选。如果您还想在 include_path（在 php.ini 中）中搜索文件的话，请设置该参数为 &#39;1&#39;。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：当书写一个文本文件时，请确保您使用了正确的行结束符！在 Unix 系统中，行结束符为 \n；在 Windows 系统中，行结束符为 \r\n；在 Macintosh 系统中，行结束符为 \r。Windows 系统中提供了一个文本转换标记 &quot;t&quot; ，可以透明地将 \n 转换为 \r\n。您还可以使用 &quot;b&quot; 来强制使用二进制模式，这样就不会转换数据。为了使用这些标记，请使用 &quot;b&quot; 或者 &quot;t&quot; 来作为 mode 参数的最后一个字符。</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;r&quot;);</span><br><span class="line">$file &#x3D; fopen(&quot;&#x2F;home&#x2F;test&#x2F;test.txt&quot;,&quot;r&quot;);</span><br><span class="line">$file &#x3D; fopen(&quot;&#x2F;home&#x2F;test&#x2F;test.gif&quot;,&quot;wb&quot;);</span><br><span class="line">$file &#x3D; fopen(&quot;http:&#x2F;&#x2F;www.example.com&#x2F;&quot;,&quot;r&quot;);</span><br><span class="line">$file &#x3D; fopen(&quot;ftp:&#x2F;&#x2F;user:password@example.com&#x2F;test.txt&quot;,&quot;w&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="fpassthru"><a href="#fpassthru" class="headerlink" title="fpassthru()"></a>fpassthru()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fpassthru() 函数从打开文件的当前位置开始读取所有数据，直到文件末尾（EOF），并向输出缓冲写结果。</span><br><span class="line">该函数返回传递的字符数，如果失败则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fpassthru(file)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：当在 Windows 系统的二进制文件中使用 fpassthru() 函数时，请牢记，必须以二进制的模式打开文件。</span><br><span class="line">提示：如果您已经向文件写入数据，就必须调用 rewind() 来将文件指针指向文件头。</span><br><span class="line">提示：如果您只想将文件的内容输出到输出缓冲，而不对它进行修改，请使用 readfile() 函数代替，这样可以省去 fopen() 调用。</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;r&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Read first line</span><br><span class="line">fgets($file);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; Send rest of the file to the output buffer</span><br><span class="line">echo fpassthru($file);</span><br><span class="line"></span><br><span class="line">fclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">There are three lines in this file.</span><br><span class="line">This is the last line.59</span><br></pre></td></tr></table></figure>
+
+<h3 id="fputcsv"><a href="#fputcsv" class="headerlink" title="fputcsv()"></a>fputcsv()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fputcsv() 函数将行格式化为 CSV 并写入一个打开的文件中。</span><br><span class="line">该函数返回写入字符串的长度。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fputcsv(file,fields,seperator,enclosure)</span><br><span class="line">file	必需。规定要写入的打开文件。</span><br><span class="line">fields	必需。规定要从中获得数据的数组。</span><br><span class="line">separator	可选。设置字段分界符（只允许一个字符），默认值为逗号（ , ）。</span><br><span class="line">enclosure	可选。设置字段环绕符（只允许一个字符），默认值为双引号（ &quot; ）。</span><br></pre></td></tr></table></figure>
+
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$list &#x3D; array</span><br><span class="line">(</span><br><span class="line">    &quot;Peter,Griffin,Oslo,Norway&quot;,</span><br><span class="line">    &quot;Glenn,Quagmire,Oslo,Norway&quot;,</span><br><span class="line">);</span><br><span class="line"></span><br><span class="line">$file &#x3D; fopen(&quot;contacts.csv&quot;,&quot;w&quot;);</span><br><span class="line"></span><br><span class="line">foreach ($list as $line)</span><br><span class="line">&#123;</span><br><span class="line">    fputcsv($file,split(&#39;,&#39;,$line));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">fclose($file); ?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="fputs"><a href="#fputs" class="headerlink" title="fputs()"></a>fputs()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fputs() 函数将内容写入一个打开的文件中。</span><br><span class="line">函数会在到达指定长度或读到文件末尾（EOF）时（以先到者为准），停止运行。</span><br><span class="line">如果函数成功执行，则返回写入的字节数。如果失败，则返回 FALSE。&#x3D;</span><br><span class="line">fputs() 函数是 fwrite() 函数的别名。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fputs(file,string,length)</span><br><span class="line">file	必需。规定要写入的打开文件。</span><br><span class="line">string	必需。规定要写入打开文件的字符串。</span><br><span class="line">length	可选。规定要写入的最大字节数。</span><br></pre></td></tr></table></figure>
+
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">该函数是二进制安全的。（意思是二进制数据（如图像）和字符数据都可以使用此函数写入。）</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;w&quot;);</span><br><span class="line">echo fputs($file,&quot;Hello World. Testing!&quot;);</span><br><span class="line">fclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">21</span><br></pre></td></tr></table></figure>
+
+<h3 id="fread"><a href="#fread" class="headerlink" title="fread()"></a>fread()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fread() 函数读取打开的文件。</span><br><span class="line">函数会在到达指定长度或读到文件末尾（EOF）时（以先到者为准），停止运行。</span><br><span class="line">该函数返回读取的字符串，如果失败则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">string fread ( resource $handle , int $length )</span><br><span class="line">handle	文件系统指针，是典型地由 fopen() 创建的 resource(资源)。</span><br><span class="line">length	必需。规定要读取的最大字节数。</span><br></pre></td></tr></table></figure>
+
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">该函数是二进制安全的。（意思是二进制数据（如图像）和字符数据都可以使用此函数写入。）</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F; 从文件中读取 10 个字节</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;r&quot;);</span><br><span class="line">$contents &#x3D; fread($file,&quot;10&quot;);</span><br><span class="line">fclose($file);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 读取整个文件</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;r&quot;);</span><br><span class="line">$contents &#x3D; fread($file,filesize(&quot;test.txt&quot;));</span><br><span class="line">fclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="fscanf"><a href="#fscanf" class="headerlink" title="fscanf()"></a>fscanf()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fscanf() 函数根据指定的格式对来自打开的文件的输入进行解析。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fscanf(file,format,mixed)</span><br><span class="line"></span><br><span class="line">format	必需。规定格式。</span><br><span class="line">        可能的格式值：</span><br><span class="line">            %% - 返回一个百分号 %</span><br><span class="line">            %b - 二进制数</span><br><span class="line">            %c - ASCII 值对应的字符</span><br><span class="line">            %d - 包含正负号的十进制数</span><br><span class="line">            %e - 科学计数法（例如：1.2e+2）</span><br><span class="line">            %u - 不包含正负号的十进制数</span><br><span class="line">            %f - 浮点数（本地属性）</span><br><span class="line">            %F - 浮点数（非本地属性）</span><br><span class="line">            %o - 十进制数</span><br><span class="line">            %s - 字符串</span><br><span class="line">            %x - 十六进制数（小写字母）</span><br><span class="line">            %X - 十六进制数（大写字母）</span><br><span class="line">            附加的格式值。必需放置在 % 和字母之间（例如 %.2f）：</span><br><span class="line">            </span><br><span class="line">            + （在数字前面加上 + 或 - 来定义数字的正负性。默认情况下，只有负数才做标记，正数不做标记）</span><br><span class="line">            &#39; （规定使用什么作为填充，默认是空格。它必须与宽度指定器一起使用。例如：%&#39;x20s（使用 &quot;x&quot; 作为填充））</span><br><span class="line">            - （左调整变量值）</span><br><span class="line">            [0-9] （规定变量值的最小宽度）</span><br><span class="line">            .[0-9] （规定小数位数或最大字符串长度）</span><br><span class="line">            注释：如果使用多个上述的格式值，它们必须按照上面的顺序进行使用，不能打乱。</span><br></pre></td></tr></table></figure>
+
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：格式字符串中的任何空白会与输入流中的任何空白匹配。这意味着格式字符串中的制表符 \t 也会与输入流中的一个单一的空格字符匹配。</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="fseek"><a href="#fseek" class="headerlink" title="fseek()"></a>fseek()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fseek() 函数在打开的文件中定位。</span><br><span class="line">该函数把文件指针从当前位置向前或向后移动到新的位置，新位置从文件头开始以字节数度量。</span><br><span class="line">如果成功该函数返回 0，如果失败则返回 -1。请注意，移动到文件末尾（EOF）之后的位置不会产生错误。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fseek(file,offset,whence)</span><br><span class="line">file	必需。规定要在其中定位的文件。</span><br><span class="line">offset	必需。规定新的位置（从文件头开始以字节数度量）。</span><br><span class="line">whence	可选。（PHP 4 中新增的）。 可能的值：</span><br><span class="line">            SEEK_SET - 设定位置等于 offset。默认。</span><br><span class="line">            SEEK_CUR - 设定位置为当前位置加上 offset。</span><br><span class="line">            SEEK_END - 设定位置为文件末尾（EOF）加上 offset（要移动到文件末尾之前的位置，offset 必须是一个负值）。</span><br></pre></td></tr></table></figure>
+
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">通过使用 ftell() 来找到当前位置！</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $file &#x3D; fopen(&quot;test.txt&quot;,&quot;r&quot;);</span><br><span class="line">    &#x2F;&#x2F; read first line</span><br><span class="line">    fgets($file);</span><br><span class="line">    &#x2F;&#x2F; move back to beginning of file</span><br><span class="line">    fseek($file,0);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="fstat"><a href="#fstat" class="headerlink" title="fstat()"></a>fstat()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fstat() 函数返回关于一个打开的文件的信息。</span><br><span class="line">该函数将返回一个包含下列元素的数组：</span><br><span class="line">    [0] 或 [dev] - 设备编号</span><br><span class="line">    [1] 或 [ino] - inode 编号</span><br><span class="line">    [2] 或 [mode] - inode 保护模式</span><br><span class="line">    [3] 或 [nlink] - 连接数目</span><br><span class="line">    [4] 或 [uid] - 所有者的用户 ID</span><br><span class="line">    [5] 或 [gid] - 所有者的组 ID</span><br><span class="line">    [6] 或 [rdev] - inode 设备类型</span><br><span class="line">    [7] 或 [size] - 文件大小的字节数</span><br><span class="line">    [8] 或 [atime] - 上次访问时间（Unix 时间戳）</span><br><span class="line">    [9] 或 [mtime] - 上次修改时间（Unix 时间戳）</span><br><span class="line">    [10] 或 [ctime] - 上次 inode 改变时间（Unix 时间戳）</span><br><span class="line">    [11] 或 [blksize] - 文件系统 IO 的块大小（如果支持）</span><br><span class="line">    [12] 或 [blocks] - 所占据块的数目</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fstat(file)</span><br></pre></td></tr></table></figure>
+
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：从这个函数返回的结果与服务器到服务器的结果是不相同的。这个数组包含了数字索引、名称索引或同时包含上述二者。</span><br><span class="line"></span><br><span class="line">提示：fstat() 函数与 stat() 函数大致类似。唯一的不同点就是，fstat()函数在使用时，文件必须已经打开。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;r&quot;);</span><br><span class="line">print_r(fstat($file));</span><br><span class="line">fclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] &#x3D;&gt; 0</span><br><span class="line">    [1] &#x3D;&gt; 0</span><br><span class="line">    [2] &#x3D;&gt; 33206</span><br><span class="line">    [3] &#x3D;&gt; 1</span><br><span class="line">    [4] &#x3D;&gt; 0</span><br><span class="line">    [5] &#x3D;&gt; 0</span><br><span class="line">    [6] &#x3D;&gt; 0</span><br><span class="line">    [7] &#x3D;&gt; 92</span><br><span class="line">    [8] &#x3D;&gt; 1141633430</span><br><span class="line">    [9] &#x3D;&gt; 1141298003</span><br><span class="line">    [10] &#x3D;&gt; 1138609592</span><br><span class="line">    [11] &#x3D;&gt; -1</span><br><span class="line">    [12] &#x3D;&gt; -1</span><br><span class="line">    [dev] &#x3D;&gt; 0</span><br><span class="line">    [ino] &#x3D;&gt; 0</span><br><span class="line">    [mode] &#x3D;&gt; 33206</span><br><span class="line">    [nlink] &#x3D;&gt; 1</span><br><span class="line">    [uid] &#x3D;&gt; 0</span><br><span class="line">    [gid] &#x3D;&gt; 0</span><br><span class="line">    [rdev] &#x3D;&gt; 0</span><br><span class="line">    [size] &#x3D;&gt; 92</span><br><span class="line">    [atime] &#x3D;&gt; 1141633430</span><br><span class="line">    [mtime] &#x3D;&gt; 1141298003</span><br><span class="line">    [ctime] &#x3D;&gt; 1138609592</span><br><span class="line">    [blksize] &#x3D;&gt; -1</span><br><span class="line">    [blocks] &#x3D;&gt; -1</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="ftell"><a href="#ftell" class="headerlink" title="ftell()"></a>ftell()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ftell() 函数返回在打开文件中的当前位置。</span><br><span class="line">返回文件指针的当前位置，如果失败则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ftell(file)</span><br></pre></td></tr></table></figure>
+
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：从这个函数返回的结果与服务器到服务器的结果是不相同的。这个数组包含了数字索引、名称索引或同时包含上述二者。</span><br><span class="line"></span><br><span class="line">提示：fstat() 函数与 stat() 函数大致类似。唯一的不同点就是，fstat()函数在使用时，文件必须已经打开。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;r&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; print current position</span><br><span class="line">echo ftell($file);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; change current position</span><br><span class="line">fseek($file,&quot;15&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; print current position again</span><br><span class="line">echo &quot;&lt;br &#x2F;&gt;&quot; . ftell($file);</span><br><span class="line"></span><br><span class="line">fclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">0</span><br><span class="line">15</span><br></pre></td></tr></table></figure>
+
+<h3 id="ftruncate"><a href="#ftruncate" class="headerlink" title="ftruncate()"></a>ftruncate()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ftruncate() 函数把打开文件截断到指定的长度。</span><br><span class="line">如果成功则返回 TRUE，如果失败则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ftruncate(file,size)</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">&#x2F;&#x2F;check filesize</span><br><span class="line">echo filesize(&quot;test.txt&quot;);</span><br><span class="line">echo &quot;&lt;br &#x2F;&gt;&quot;;</span><br><span class="line"></span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;, &quot;a+&quot;);</span><br><span class="line">ftruncate($file,100);</span><br><span class="line">fclose($file);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Clear cache and check filesize again</span><br><span class="line">clearstatcache();</span><br><span class="line">echo filesize(&quot;test.txt&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">792</span><br><span class="line">100</span><br></pre></td></tr></table></figure>
+
+<h3 id="fwrite"><a href="#fwrite" class="headerlink" title="fwrite()"></a>fwrite()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fwrite() 函数将内容写入一个打开的文件中。</span><br><span class="line">函数会在到达指定长度或读到文件末尾（EOF）时（以先到者为准），停止运行。</span><br><span class="line">如果函数成功执行，则返回写入的字节数。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fwrite(file,string,length)</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;w&quot;);</span><br><span class="line">echo fwrite($file,&quot;Hello World. Testing!&quot;);</span><br><span class="line">fclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">21</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="glob"><a href="#glob" class="headerlink" title="glob()"></a>glob()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">glob() 函数返回一个包含匹配指定模式的文件名或目录的数组。</span><br><span class="line">该函数返回一个包含有匹配文件&#x2F;目录的数组。如果失败则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">glob(pattern,flags)</span><br><span class="line">pattern	必需。规定检索模式。</span><br><span class="line">flags	可选。规定特殊的设定。</span><br><span class="line">        可能的值：</span><br><span class="line">            GLOB_MARK - 在每个返回的项目中加一个斜线</span><br><span class="line">            GLOB_NOSORT - 按照文件在目录中出现的原始顺序返回（不排序）</span><br><span class="line">            GLOB_NOCHECK - 如果没有文件匹配则返回用于搜索的模式</span><br><span class="line">            GLOB_NOESCAPE - 反斜线不转义元字符</span><br><span class="line">            GLOB_BRACE - 扩充 &#123;a,b,c&#125; 来匹配 &#39;a&#39;，&#39;b&#39; 或 &#39;c&#39;</span><br><span class="line">            GLOB_ONLYDIR - 仅返回与模式匹配的目录项</span><br><span class="line">            GLOB_ERR - （PHP 5.1 新增的）如果错误则停止，默认情况下忽略所有错误</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">print_r(glob(&quot;*.txt&quot;));</span><br><span class="line">print_r(glob(&quot;*.*&quot;));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] &#x3D;&gt; target.txt</span><br><span class="line">    [1] &#x3D;&gt; source.txt</span><br><span class="line">    [2] &#x3D;&gt; test.txt</span><br><span class="line">    [3] &#x3D;&gt; test2.txt</span><br><span class="line">)</span><br><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] &#x3D;&gt; contacts.csv</span><br><span class="line">    [1] &#x3D;&gt; default.php</span><br><span class="line">    [2] &#x3D;&gt; target.txt</span><br><span class="line">    [3] &#x3D;&gt; source.txt</span><br><span class="line">    [4] &#x3D;&gt; tem1.tmp</span><br><span class="line">    [5] &#x3D;&gt; test.htm</span><br><span class="line">    [6] &#x3D;&gt; test.ini</span><br><span class="line">    [7] &#x3D;&gt; test.php</span><br><span class="line">    [8] &#x3D;&gt; test.txt</span><br><span class="line">    [9] &#x3D;&gt; test2.txt</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="is-dir"><a href="#is-dir" class="headerlink" title="is_dir()"></a>is_dir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_dir() 函数检查指定的文件是否是一个目录。</span><br><span class="line">如果目录存在，该函数返回 TRUE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_dir(file)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; &quot;images&quot;;</span><br><span class="line">if (is_dir($file)) &#123;</span><br><span class="line">    echo (&quot;$file is a directory&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo (&quot;$file is not a directory&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">images is a directory</span><br></pre></td></tr></table></figure>
+
+<h3 id="is-executable"><a href="#is-executable" class="headerlink" title="is_executable()"></a>is_executable()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_executable() 函数检查指定的文件是否可执行。</span><br><span class="line">如果文件可执行，该函数返回 TRUE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_executable(file)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br><span class="line">注释：自 PHP 5.0 版本起，is_executable() 函数可用于 Windows。</span><br></pre></td></tr></table></figure>
+
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; &quot;setup.exe&quot;;</span><br><span class="line">if (is_executable($file)) &#123;</span><br><span class="line">    echo (&quot;$file is executable&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo (&quot;$file is not executable&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setup.exe is executable</span><br></pre></td></tr></table></figure>
+
+<h3 id="is-file"><a href="#is-file" class="headerlink" title="is_file()"></a>is_file()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_file() 函数检查指定的文件是否是常规的文件。</span><br><span class="line">如果文件是常规的文件，该函数返回 TRUE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_file(file)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; &quot;test.txt&quot;;</span><br><span class="line">if (is_file($file)) &#123;</span><br><span class="line">    echo (&quot;$file is a regular file&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo (&quot;$file is not a regular file&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test.txt is a regular file</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="is-link"><a href="#is-link" class="headerlink" title="is_link()"></a>is_link()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_link() 函数检查指定的文件是否是一个连接。</span><br><span class="line">如果文件是一个连接，该函数返回 TRUE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_link(file)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$link &#x3D; &quot;images&quot;;</span><br><span class="line">if (is_link($link)) &#123;</span><br><span class="line">    echo (&quot;$link is a link&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo (&quot;$link is not a link&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">images is not a link</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="is-readable"><a href="#is-readable" class="headerlink" title="is_readable()"></a>is_readable()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_readable() 函数检查指定的文件是否可读。</span><br><span class="line">如果文件可读，该函数返回 TRUE</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_readable(file)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; &quot;test.txt&quot;;</span><br><span class="line">if (is_readable($file)) &#123;</span><br><span class="line">    echo (&quot;$file is readable&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo (&quot;$file is not readable&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test.txt is readable</span><br></pre></td></tr></table></figure>
+
+<h3 id="is-uploaded-file"><a href="#is-uploaded-file" class="headerlink" title="is_uploaded_file()"></a>is_uploaded_file()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_uploaded_file() 函数检查指定的文件是否是通过 HTTP POST 上传的。</span><br><span class="line">如果文件是通过 HTTP POST 上传的，该函数返回 TRUE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_uploaded_file(file)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; &quot;test.txt&quot;;</span><br><span class="line">if(is_uploaded_file($file)) &#123;</span><br><span class="line">    echo (&quot;$file is uploaded via HTTP POST&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo (&quot;$file is not uploaded via HTTP POST&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test.txt is not uploaded via HTTP POST</span><br></pre></td></tr></table></figure>
+
+<h3 id="is-writable"><a href="#is-writable" class="headerlink" title="is_writable()"></a>is_writable()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_writable() 函数检查指定的文件是否可写。</span><br><span class="line">如果文件可写，该函数返回 TRUE。是通过 HTTP POST 上传的，该函数返回 TRUE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_writable(file)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; &quot;test.txt&quot;;</span><br><span class="line">if (is_writable($file)) &#123;</span><br><span class="line">    echo (&quot;$file is writeable&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo (&quot;$file is not writeable&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test.txt is writeable</span><br></pre></td></tr></table></figure>
+
+<h3 id="is-writeable"><a href="#is-writeable" class="headerlink" title="is_writeable()"></a>is_writeable()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_writeable() 函数检查指定的文件是否可写。</span><br><span class="line">如果文件可写，该函数返回 TRUE。</span><br><span class="line">该函数是 is_writable() 函数的别名。如果文件可写，该函数返回 TRUE。是通过 HTTP POST 上传的，该函数返回 TRUE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">is_writeable(file)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; &quot;test.txt&quot;;</span><br><span class="line">if (is_writeable($file)) &#123;</span><br><span class="line">    echo (&quot;$file is writeable&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo (&quot;$file is not writeable&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">test.txt is writeable</span><br></pre></td></tr></table></figure>
+
+<h3 id="link"><a href="#link" class="headerlink" title="link()"></a>link()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">link() 函数创建一个从指定名称连接的现存目标文件开始的硬连接。</span><br><span class="line">如果成功，该函数返回 TRUE。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">link(target,link)</span><br><span class="line"></span><br><span class="line">target	必需。</span><br><span class="line">link	必需。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：这不是一个 HTML 连接，而是一个文件系统中的连接。</span><br><span class="line">注释：该函数不能作用于远程文件。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$target &#x3D; &#39;source.ext&#39;; &#x2F;&#x2F; This is the file that already exists</span><br><span class="line">$link &#x3D; &#39;newfile.ext&#39;; &#x2F;&#x2F; This the filename that you want to link it to</span><br><span class="line"></span><br><span class="line">link($target, $link);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="linkinfo"><a href="#linkinfo" class="headerlink" title="linkinfo()"></a>linkinfo()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">linkinfo() 函数返回有关一个硬连接的信息。</span><br><span class="line">该函数返回设备 ID，如果失败则返回 FALSE。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">linkinfo(path)</span><br><span class="line"></span><br><span class="line">path	必需。规定要检查的路径。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：这不是一个 HTML 连接，而是一个文件系统中的连接。</span><br><span class="line">注释：该函数不能在 Windows 平台上执行。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    echo linkinfo(&#39;&#x2F;vmlinuz&#39;); &#x2F;&#x2F; 835</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="lstat"><a href="#lstat" class="headerlink" title="lstat()"></a>lstat()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lstat() 函数返回关于文件或符号连接的信息。</span><br><span class="line">该函数将返回一个包含下列元素的数组：</span><br><span class="line">    [0] 或 [dev] - 设备编号</span><br><span class="line">    [1] 或 [ino] - inode 编号</span><br><span class="line">    [2] 或 [mode] - inode 保护模式</span><br><span class="line">    [3] 或 [nlink] - 连接数目</span><br><span class="line">    [4] 或 [uid] - 所有者的用户 ID</span><br><span class="line">    [5] 或 [gid] - 所有者的组 ID</span><br><span class="line">    [6] 或 [rdev] - inode 设备类型</span><br><span class="line">    [7] 或 [size] - 文件大小的字节数</span><br><span class="line">    [8] 或 [atime] - 上次访问时间（Unix 时间戳）</span><br><span class="line">    [9] 或 [mtime] - 上次修改时间（Unix 时间戳）</span><br><span class="line">    [10] 或 [ctime] - 上次 inode 改变时间（Unix 时间戳）</span><br><span class="line">    [11] 或 [blksize] - 文件系统 IO 的块大小（如果支持）</span><br><span class="line">    [12] 或 [blocks] - 所占据块的数目</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lstat(file)</span><br><span class="line"></span><br><span class="line">path	必需。规定要检查的路径。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：从这个函数返回的结果与服务器到服务器的结果是不相同的。这个数组包含了数字索引、名称索引或同时包含上述二者。</span><br><span class="line">注释：该函数的结果会被缓存。请使用 clearstatcache() 来清除缓存。</span><br><span class="line">提示：lstat() 函数与 stat() 函数大致类似。唯一的不同点就是，如果 file 参数是一个符号连接，那么将返回该符号连接的状态（而不是该符号连接所指向的文件的状态）。</span><br></pre></td></tr></table></figure>
+<p>测试案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">print_r(lstat(&quot;test.txt&quot;));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [0] &#x3D;&gt; 0</span><br><span class="line">    [1] &#x3D;&gt; 0</span><br><span class="line">    [2] &#x3D;&gt; 33206</span><br><span class="line">    [3] &#x3D;&gt; 1</span><br><span class="line">    [4] &#x3D;&gt; 0</span><br><span class="line">    [5] &#x3D;&gt; 0</span><br><span class="line">    [6] &#x3D;&gt; 0</span><br><span class="line">    [7] &#x3D;&gt; 92</span><br><span class="line">    [8] &#x3D;&gt; 1141633430</span><br><span class="line">    [9] &#x3D;&gt; 1141298003</span><br><span class="line">    [10] &#x3D;&gt; 1138609592</span><br><span class="line">    [11] &#x3D;&gt; -1</span><br><span class="line">    [12] &#x3D;&gt; -1</span><br><span class="line">    [dev] &#x3D;&gt; 0</span><br><span class="line">    [ino] &#x3D;&gt; 0</span><br><span class="line">    [mode] &#x3D;&gt; 33206</span><br><span class="line">    [nlink] &#x3D;&gt; 1</span><br><span class="line">    [uid] &#x3D;&gt; 0</span><br><span class="line">    [gid] &#x3D;&gt; 0</span><br><span class="line">    [rdev] &#x3D;&gt; 0</span><br><span class="line">    [size] &#x3D;&gt; 92</span><br><span class="line">    [atime] &#x3D;&gt; 1141633430</span><br><span class="line">    [mtime] &#x3D;&gt; 1141298003</span><br><span class="line">    [ctime] &#x3D;&gt; 1138609592</span><br><span class="line">    [blksize] &#x3D;&gt; -1</span><br><span class="line">    [blocks] &#x3D;&gt; -1</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><blockquote>
+<p><a href="https://www.runoob.com/php/php-ref-filesystem.html" target="_blank" rel="noopener">PHP 5 Filesystem 函数 | 菜鸟教程</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
 </search>
