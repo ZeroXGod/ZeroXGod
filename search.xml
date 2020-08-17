@@ -2789,4 +2789,188 @@
         <tag>PHP</tag>
       </tags>
   </entry>
+  <entry>
+    <title>PHP 第九周函数学习记录</title>
+    <url>/2020/08/17/PHP-%E7%AC%AC%E4%B9%9D%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="mkdir"><a href="#mkdir" class="headerlink" title="mkdir()"></a>mkdir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir() 函数创建目录。</span><br><span class="line">如果成功该函数返回 TRUE，如果失败则返回 FALSE</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">mkdir(path,mode,recursive,context)</span><br><span class="line">path	必需。规定要创建的目录的名称。</span><br><span class="line">mode	可选。规定权限。默认是 0777（允许全局访问）。</span><br><span class="line">        mode   参数由四个数字组成：</span><br><span class="line">        第一个数字通常是 0</span><br><span class="line">        第二个数字规定所有者的权限</span><br><span class="line">        第三个数字规定所有者所属的用户组的权限</span><br><span class="line">        第四个数字规定其他所有人的权限</span><br><span class="line">        可能的值（如需设置多个权限，请对下面的数字进行总计）：</span><br><span class="line">        1 &#x3D; 执行权限</span><br><span class="line">        2 &#x3D; 写权限</span><br><span class="line">        4 &#x3D; 读权限</span><br><span class="line">recursive	可选。规定是否设置递归模式。（PHP 5 中新增的）</span><br><span class="line">context	可选。规定文件句柄的环境。context 是一套可以修改流的行为的选项。（PHP 5 中新增的）</span><br></pre></td></tr></table></figure>
+
+<h3 id="move-uploaded-file"><a href="#move-uploaded-file" class="headerlink" title="move_uploaded_file()"></a>move_uploaded_file()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">move_uploaded_file() 函数把上传的文件移动到新位置。</span><br><span class="line">如果成功该函数返回 TRUE，如果失败则返回 FALSE</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">move_uploaded_file(file,newloc)</span><br><span class="line">file	必需。规定要移动的文件。</span><br><span class="line">newloc	必需。规定文件的新位置。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数仅用于通过 HTTP POST 上传的文件。</span><br><span class="line">注释：如果目标文件已经存在，将会被覆盖。</span><br></pre></td></tr></table></figure>
+
+<h3 id="parse-ini-file"><a href="#parse-ini-file" class="headerlink" title="parse_ini_file()"></a>parse_ini_file()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">parse_ini_file() 函数解析一个配置文件（ini 文件），并以数组的形式返回其中的设置。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">parse_ini_file(file,process_sections)</span><br><span class="line">file	必需。规定要检查的 ini 文件。</span><br><span class="line">process_sections	可选。如果设置为 TRUE，则返回一个多维数组，包括了配置文件中每一节的名称和设置。默认是 FALSE。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">提示：本函数可以用来读取您自己的应用程序的配置文件，与 php.ini 文件没有关系。</span><br><span class="line"></span><br><span class="line">注释：有些保留字不能作为 ini 文件中的键名，包括：null、yes、no、true 和 false。字符 &#123;&#125;|&amp;~![()&quot; 也不能用在键名的任何地方</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; &quot;test.ini&quot; 的内容：</span><br><span class="line">[names]</span><br><span class="line">me &#x3D; Robert</span><br><span class="line">you &#x3D; Peter</span><br><span class="line"></span><br><span class="line">[urls]</span><br><span class="line">first &#x3D; &quot;http:&#x2F;&#x2F;www.example.com&quot;</span><br><span class="line">second &#x3D; &quot;https:&#x2F;&#x2F;www.runoob.com&quot;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; PHP 代码</span><br><span class="line">&lt;?php</span><br><span class="line">print_r(parse_ini_file(&quot;test.ini&quot;));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [me] &#x3D;&gt; Robert</span><br><span class="line">    [you] &#x3D;&gt; Peter</span><br><span class="line">    [first] &#x3D;&gt; http:&#x2F;&#x2F;www.example.com</span><br><span class="line">    [second] &#x3D;&gt; https:&#x2F;&#x2F;www.runoob.com</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="pathinfo"><a href="#pathinfo" class="headerlink" title="pathinfo()"></a>pathinfo()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pathinfo() 函数以数组的形式返回关于文件路径的信息。</span><br><span class="line">返回的数组元素如下：</span><br><span class="line">    [dirname]: 目录路径</span><br><span class="line">    [basename]: 文件名</span><br><span class="line">    [extension]: 文件后缀名</span><br><span class="line">    [filename]: 不包含后缀的文件名</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pathinfo(path,options)</span><br><span class="line">path	必需。规定要检查的路径。</span><br><span class="line">options	可选。规定要返回的数组元素。默认是 all。</span><br><span class="line">可能的值：</span><br><span class="line">    PATHINFO_DIRNAME - 只返回 dirname</span><br><span class="line">    PATHINFO_BASENAME - 只返回 basename</span><br><span class="line">    PATHINFO_EXTENSION - 只返回 extension</span><br><span class="line">    PATHINFO_FILENAME - 只返回 filename</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：如果不是请求所有的元素，则 pathinfo() 函数返回字符串。</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">print_r(pathinfo(&quot;&#x2F;testweb&#x2F;test.txt&quot;));</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [dirname] &#x3D;&gt; &#x2F;testweb</span><br><span class="line">    [basename] &#x3D;&gt; test.txt</span><br><span class="line">    [extension] &#x3D;&gt; txt</span><br><span class="line">    [filename] &#x3D;&gt; test</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="pclose"><a href="#pclose" class="headerlink" title="pclose()"></a>pclose()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pclose() 函数关闭由 popen() 打开的进程。</span><br><span class="line">如果失败，该函数返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">pclose(pipe)</span><br><span class="line">pipe	必需。规定由 popen() 打开的进程。</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; popen(&quot;&#x2F;bin&#x2F;ls&quot;,&quot;r&quot;);</span><br><span class="line">&#x2F;&#x2F;some code to be executed</span><br><span class="line">pclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="popen"><a href="#popen" class="headerlink" title="popen()"></a>popen()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">popen() 函数使用 command 参数打开进程文件指针。</span><br><span class="line">如果出错，该函数返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">popen(command,mode)</span><br><span class="line">command	必需。规定要执行的命令。</span><br><span class="line">mode	必需。规定连接模式。</span><br><span class="line">        可能的值：</span><br><span class="line">            r: 只读。</span><br><span class="line">            w: 只写（打开并清空已有文件或创建一个新文件）</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; popen(&quot;&#x2F;bin&#x2F;ls&quot;,&quot;r&quot;);</span><br><span class="line">&#x2F;&#x2F;some code to be executed</span><br><span class="line">pclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="readfile"><a href="#readfile" class="headerlink" title="readfile()"></a>readfile()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">readfile() 函数读取一个文件，并写入到输出缓冲。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回从文件中读入的字节数。如果失败，该函数返回 FALSE 并附带错误信息。您可以通过在函数名前面添加一个 &#39;@&#39; 来隐藏错误输出。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">readfile(filename,include_path,context)</span><br><span class="line"></span><br><span class="line">filename	    必需。规定要读取的文件。</span><br><span class="line">include_path	可选。如果您还想在 include_path（在 php.ini 中）中搜索文件的话，请设置该参数为 &#39;1&#39;。</span><br><span class="line">context	        可选。规定文件句柄的环境。context 是一套可以修改流的行为的选项。</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo readfile(&quot;test.txt&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">There are two lines in this file.</span><br><span class="line">This is the last line.</span><br><span class="line">57</span><br></pre></td></tr></table></figure>
+
+<h3 id="readlink"><a href="#readlink" class="headerlink" title="readlink()"></a>readlink()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">readlink() 函数返回符号连接的目标。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回连接的目标。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">readlink(linkpath)</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo readlink(&quot;&#x2F;user&#x2F;testlink&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="realpath"><a href="#realpath" class="headerlink" title="realpath()"></a>realpath()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">realpath() 函数返回绝对路径。</span><br><span class="line"></span><br><span class="line">该函数删除所有符号连接（比如 &#39;&#x2F;.&#x2F;&#39;, &#39;&#x2F;..&#x2F;&#39; 以及多余的 &#39;&#x2F;&#39;），并返回绝对路径名。</span><br><span class="line"></span><br><span class="line">如果失败，该函数返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">realpath(path)</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo realpath(&quot;test.txt&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:Inetpubtestwebtest.txt</span><br></pre></td></tr></table></figure>
+
+<h3 id="rename"><a href="#rename" class="headerlink" title="rename()"></a>rename()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rename() 函数重命名文件或目录。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回 TRUE。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rename(oldname,newname,context)</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">rename(&quot;images&quot;,&quot;pictures&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="rewind"><a href="#rewind" class="headerlink" title="rewind()"></a>rewind()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rewind() 函数将文件指针的位置倒回文件的开头。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回 TRUE。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rewind(file)</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;r&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Change position of file pointer</span><br><span class="line">fseek($file,&quot;15&quot;);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;Set file pointer to 0</span><br><span class="line">rewind($file);</span><br><span class="line"></span><br><span class="line">fclose($file);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="rmdir"><a href="#rmdir" class="headerlink" title="rmdir()"></a>rmdir()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rmdir() 函数删除空的目录。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回 TRUE。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rmdir(dir,context)</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$path &#x3D; &quot;images&quot;;</span><br><span class="line">if(!rmdir($path))</span><br><span class="line">&#123;</span><br><span class="line">    echo (&quot;Could not remove $path&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="set-file-buffer"><a href="#set-file-buffer" class="headerlink" title="set_file_buffer()"></a>set_file_buffer()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set_file_buffer() 函数设置打开文件的缓冲大小。</span><br><span class="line"></span><br><span class="line">使用 fwrite() 函数输出结果，缓冲的大小通常为 8K。因此，如果要将两个进程写入同一个文件，那么每个文件一次最多只能写进 8K 大小，且允许其他进程写入。如果 buffer 为 0，那么将不对写入操作进行缓冲（这意味着：只有在第一个写入进程全部完成之后，才能允许其他进程写入）。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回 0，否则返回 EOF。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set_file_buffer(file,buffer)</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 创建无缓冲的流</span><br><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; fopen(&quot;test.txt&quot;,&quot;w&quot;);</span><br><span class="line">if ($file)</span><br><span class="line">&#123;</span><br><span class="line">set_file_buffer($file,0);</span><br><span class="line">fwrite($file,&quot;Hello World. Testing!&quot;);</span><br><span class="line">fclose($file);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="stat"><a href="#stat" class="headerlink" title="stat()"></a>stat()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">stat() 函数返回关于文件的信息。</span><br><span class="line"></span><br><span class="line">该函数将返回一个包含下列元素的数组：</span><br><span class="line">    [0] 或 [dev] - 设备编号</span><br><span class="line">    [1] 或 [ino] - inode 编号</span><br><span class="line">    [2] 或 [mode] - inode 保护模式</span><br><span class="line">    [3] 或 [nlink] - 连接数目</span><br><span class="line">    [4] 或 [uid] - 所有者的用户 ID</span><br><span class="line">    [5] 或 [gid] - 所有者的组 ID</span><br><span class="line">    [6] 或 [rdev] - inode 设备类型</span><br><span class="line">    [7] 或 [size] - 文件大小的字节数</span><br><span class="line">    [8] 或 [atime] - 上次访问时间（Unix 时间戳）</span><br><span class="line">    [9] 或 [mtime] - 上次修改时间（Unix 时间戳）</span><br><span class="line">    [10] 或 [ctime] - 上次 inode 改变时间（Unix 时间戳）</span><br><span class="line">    [11] 或 [blksize] - 文件系统 IO 的块大小（如果支持）</span><br><span class="line">    [12] 或 [blocks] - 所占据块的数目</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">stat(filename)</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$stat &#x3D; stat(&#39;test.txt&#39;);</span><br><span class="line">echo &#39;Acces time: &#39; .$stat[&#39;atime&#39;];</span><br><span class="line">echo &#39;&lt;br &#x2F;&gt;Modification time: &#39; .$stat[&#39;mtime&#39;];</span><br><span class="line">echo &#39;&lt;br &#x2F;&gt;Device number: &#39; .$stat[&#39;dev&#39;];</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Access time: 1141633430</span><br><span class="line">Modification time: 1141298003</span><br><span class="line">Device number: 0</span><br></pre></td></tr></table></figure>
+
+<h3 id="symlink"><a href="#symlink" class="headerlink" title="symlink()"></a>symlink()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symlink() 函数创建一个从指定名称连接的现存目标文件开始的符号连接。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回 TRUE。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">symlink(target,link)</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：这不是一个 HTML 连接，而是一个文件系统中的连接。</span><br><span class="line"></span><br><span class="line">注释：该函数不能在 Windows 平台上执行。</span><br></pre></td></tr></table></figure>
+
+<h3 id="tempnam"><a href="#tempnam" class="headerlink" title="tempnam()"></a>tempnam()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tempnam() 函数在指定的目录中创建一个具有唯一文件名的临时文件。</span><br><span class="line"></span><br><span class="line">该函数返回新的临时文件名，如果失败则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tempnam(dir,prefix)</span><br><span class="line"></span><br><span class="line">dir	    必需。规定创建临时文件的目录。</span><br><span class="line">prefix	必需。规定文件名的开头。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：如果指定的目录不存在，那么 tempnam() 会在系统的临时目录中生成一个文件。</span><br><span class="line"></span><br><span class="line">提示：参见 tmpfile()。</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo tempnam(&quot;C:inetpubtestweb&quot;,&quot;TMP0&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">C:inetpubtestwebTMP1.tmp</span><br></pre></td></tr></table></figure>
+
+<h3 id="tmpfile"><a href="#tmpfile" class="headerlink" title="tmpfile()"></a>tmpfile()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tmpfile() 函数以读写（w+）模式创建一个具有唯一文件名的临时文件。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">tmpfile()</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：临时文件会在文件关闭后（用 fclose()）或当脚本结束后自动被删除。</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$temp &#x3D; tmpfile();</span><br><span class="line"></span><br><span class="line">fwrite($temp, &quot;Testing, testing.&quot;);</span><br><span class="line">&#x2F;&#x2F;Rewind to the start of file</span><br><span class="line">rewind($temp);</span><br><span class="line">&#x2F;&#x2F;Read 1k from file</span><br><span class="line">echo fread($temp,1024);</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;This removes the file</span><br><span class="line">fclose($temp);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Testing, testing.</span><br></pre></td></tr></table></figure>
+
+<h3 id="touch"><a href="#touch" class="headerlink" title="touch()"></a>touch()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch() 函数设置指定文件的访问和修改时间。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回 TRUE。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">touch(filename,time,atime)</span><br><span class="line">filename	必需。规定要接触的文件。</span><br><span class="line">time	可选。设置时间。默认设置为当前系统时间。</span><br><span class="line">atime	可选。设置访问时间。如果参数未设置或设置为与 time 参数相同，则默认设置为当前系统时间。</span><br></pre></td></tr></table></figure>
+<p>提示和注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：如果指定的文件不存在，则会被创建。</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">touch(&quot;test.txt&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="umask"><a href="#umask" class="headerlink" title="umask()"></a>umask()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">umask() 函数改变文件的文件权限。</span><br><span class="line">该函数把 PHP 的 umask 设置为 mask &amp; 0777 并返回原来的 umask。然而，如果您调用 umask() 时不带参数，则会返回当前的 umask。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">umask(mask)</span><br><span class="line"></span><br><span class="line">mask	可选。规定新的权限。默认是 0777。</span><br><span class="line">        mask 参数由四个数字组成：</span><br><span class="line">            第一个数字通常是 0</span><br><span class="line">            第二个数字规定所有者的权限</span><br><span class="line">            第三个数字规定所有者所属的用户组的权限</span><br><span class="line">            第四个数字规定其他所有人的权限</span><br><span class="line">            可能的值（如需设置多个权限，请对下面的数字进行总计）：</span><br><span class="line">                1 &#x3D; 执行权限</span><br><span class="line">                2 &#x3D; 写权限</span><br><span class="line">                4 &#x3D; 读权限</span><br></pre></td></tr></table></figure>
+
+<h3 id="unlink"><a href="#unlink" class="headerlink" title="unlink()"></a>unlink()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unlink() 函数删除文件。</span><br><span class="line"></span><br><span class="line">如果成功，该函数返回 TRUE。如果失败，则返回 FALSE。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">unlink(filename,context)</span><br><span class="line"></span><br><span class="line">filename	必需。规定要删除的文件。</span><br><span class="line">context	可选。规定文件句柄的环境。context 是一套可以修改流的行为的选项。</span><br></pre></td></tr></table></figure>
+<p>实例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$file &#x3D; &quot;test.txt&quot;;</span><br><span class="line">if (!unlink($file)) &#123;</span><br><span class="line">    echo (&quot;Error deleting $file&quot;);</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    echo (&quot;Deleted $file&quot;);</span><br><span class="line">&#125;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><blockquote>
+<p><a href="https://www.runoob.com/php/php-ref-filesystem.html" target="_blank" rel="noopener">PHP 5 Filesystem 函数 | 菜鸟教程</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
 </search>
