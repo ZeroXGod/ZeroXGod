@@ -3066,7 +3066,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chunk_split() 函数把字符串分割为一连串更小的部分。</span><br></pre></td></tr></table></figure>
 
 <p>用法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chunk_split(string,length,end)</span><br><span class="line"></span><br><span class="line">string	必需。规定要分割的字符串。</span><br><span class="line">length	可选。一个数字，定义字符串块的长度。默认为 76。</span><br><span class="line">end	    可选。一个字符串，定义在每个字符串块之后放置的内容。默认为 \r\n。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">chunk_split(string,length,end)</span><br><span class="line"></span><br><span class="line">string	必需。规定要分割的字符串。</span><br><span class="line">length	可选。一个数字，定义字符串块的长度。默认为 76。</span><br><span class="line">end     可选。一个字符串，定义在每个字符串块之后放置的内容。默认为 \r\n。</span><br></pre></td></tr></table></figure>
 
 
 <p>案例</p>
@@ -3078,7 +3078,7 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">convert_cyr_string() 函数把字符串由一种 Cyrillic 字符集转换成另一种。</span><br></pre></td></tr></table></figure>
 
 <p>用法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">convert_cyr_string(string,from,to)</span><br><span class="line"></span><br><span class="line">string	必需。规定要转换的字符串。</span><br><span class="line">from	必需。一个规定了源 Cyrillic 字符集的字符。</span><br><span class="line">to	    必需。一个规定了目标 Cyrillic 字符集的字符。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">convert_cyr_string(string,from,to)</span><br><span class="line"></span><br><span class="line">string	必需。规定要转换的字符串。</span><br><span class="line">from	必需。一个规定了源 Cyrillic 字符集的字符。</span><br><span class="line">to      必需。一个规定了目标 Cyrillic 字符集的字符。</span><br></pre></td></tr></table></figure>
 
 <p>被支持的 Cyrillic 字符集是：</p>
 <ul>
@@ -3266,6 +3266,357 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$str &#x3D; &quot;Jane &amp; &amp;#039;Tarzan&amp;#039;&quot;;</span><br><span class="line">echo html_entity_decode($str, ENT_COMPAT); </span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo html_entity_decode($str, ENT_QUOTES);</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo html_entity_decode($str, ENT_NOQUOTES); </span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
 <p>结果</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; html源码结果</span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">Jane &amp; &amp;#039;Tarzan&amp;#039;&lt;br&gt;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;&lt;br&gt;</span><br><span class="line">Jane &amp; &amp;#039;Tarzan&amp;#039;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; html显示结果</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><blockquote>
+<p><a href="https://www.runoob.com/php/php-ref-string.html" target="_blank" rel="noopener">PHP 5 String 函数 | 菜鸟教程</a></p>
+</blockquote>
+]]></content>
+      <categories>
+        <category>Code</category>
+      </categories>
+      <tags>
+        <tag>PHP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>PHP 第十一周函数学习记录录</title>
+    <url>/2020/08/30/PHP-%E7%AC%AC%E5%8D%81%E4%B8%80%E5%91%A8%E5%87%BD%E6%95%B0%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95%E5%BD%95/</url>
+    <content><![CDATA[<h3 id="htmlentities"><a href="#htmlentities" class="headerlink" title="htmlentities()"></a>htmlentities()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">htmlentities() 函数把字符转换为 HTML 实体。</span><br></pre></td></tr></table></figure>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">htmlentities(string,flags,character-set,double_encode)</span><br></pre></td></tr></table></figure>
+
+<a id="more"></a>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$str &#x3D; &quot;Jane &amp; &#39;Tarzan&#39;&quot;;</span><br><span class="line">echo htmlentities($str, ENT_COMPAT); </span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo htmlentities($str, ENT_QUOTES); </span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo htmlentities($str, ENT_NOQUOTES); convert any quotes</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 上面代码的 HTML 输出如下（查看源代码）：</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;&lt;br&gt;</span><br><span class="line">Jane &amp; &amp;#039;Tarzan&amp;#039;&lt;br&gt;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 上面代码的浏览器输出如下：</span><br><span class="line"></span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="htmlspecialchars-decode"><a href="#htmlspecialchars-decode" class="headerlink" title="htmlspecialchars_decode()"></a>htmlspecialchars_decode()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">htmlspecialchars_decode() 函数把一些预定义的 HTML 实体转换为字符。</span><br></pre></td></tr></table></figure>
+<p>会被解码的 HTML 实体是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&amp; 解码成 &amp; （和号）</span><br><span class="line">&quot; 解码成 &quot; （双引号）</span><br><span class="line">&#39; 解码成 &#39; （单引号）</span><br><span class="line">&lt; 解码成 &lt; （小于）</span><br><span class="line">&gt; 解码成 &gt; （大于）</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">htmlentities(string,flags,character-set,double_encode)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$str &#x3D; &quot;Jane &amp; &#39;Tarzan&#39;&quot;;</span><br><span class="line">echo htmlspecialchars_decode($str, ENT_COMPAT); &#x2F;&#x2F;  默认，仅解码双引号</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo htmlspecialchars_decode($str, ENT_QUOTES); &#x2F;&#x2F;  解码双引号和单引号</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo htmlspecialchars_decode($str, ENT_NOQUOTES); &#x2F;&#x2F; 不解码任何引号</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 上面代码的 HTML 输出如下（查看源代码）：</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;&lt;br&gt;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;&lt;br&gt;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 上面代码的浏览器输出如下：</span><br><span class="line"></span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="htmlspecialchars"><a href="#htmlspecialchars" class="headerlink" title="htmlspecialchars()"></a>htmlspecialchars()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">htmlspecialchars() 函数把一些预定义的字符转换为 HTML 实体。</span><br></pre></td></tr></table></figure>
+<p>预定义的字符是：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&amp; （和号）成为 &amp;</span><br><span class="line">&quot; （双引号）成为 &quot;</span><br><span class="line">&#39; （单引号）成为 &#39;</span><br><span class="line">&lt; （小于）成为 &lt;</span><br><span class="line">&gt; （大于）成为 &gt;</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">htmlentities(string,flags,character-set,double_encode)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$str &#x3D; &quot;Jane &amp; &#39;Tarzan&#39;&quot;;</span><br><span class="line">echo htmlspecialchars($str, ENT_COMPAT); &#x2F;&#x2F; 默认，仅编码双引号</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo htmlspecialchars($str, ENT_QUOTES); &#x2F;&#x2F; 编码双引号和单引号</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo htmlspecialchars($str, ENT_NOQUOTES); &#x2F;&#x2F; 不编码任何引号</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 上面代码的 HTML 输出如下（查看源代码）：</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;&lt;br&gt;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;&lt;br&gt;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 上面代码的浏览器输出如下：</span><br><span class="line"></span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br><span class="line">Jane &amp; &#39;Tarzan&#39;</span><br></pre></td></tr></table></figure>
+
+<h3 id="implode"><a href="#implode" class="headerlink" title="implode()"></a>implode()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">implode() 函数返回一个由数组元素组合成的字符串。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">implode(separator,array)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$arr &#x3D; array(&#39;Hello&#39;,&#39;World!&#39;,&#39;Beautiful&#39;,&#39;Day!&#39;);</span><br><span class="line">echo implode(&quot; &quot;,$arr);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hello World! Beautiful Day!</span><br></pre></td></tr></table></figure>
+
+<h3 id="join"><a href="#join" class="headerlink" title="join()"></a>join()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">join() 函数返回一个由数组元素组合成的字符串。</span><br><span class="line">join() 函数是 implode() 函数的别名。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">join(separator,array)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$arr &#x3D; array(&#39;Hello&#39;,&#39;World!&#39;,&#39;Beautiful&#39;,&#39;Day!&#39;);</span><br><span class="line">echo join(&quot; &quot;,$arr);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hello World! Beautiful Day!</span><br></pre></td></tr></table></figure>
+
+<h3 id="lcfirst"><a href="#lcfirst" class="headerlink" title="lcfirst()"></a>lcfirst()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lcfirst() 函数把字符串中的首字符转换为小写。</span><br></pre></td></tr></table></figure>
+
+<p>相关函数</p>
+<ul>
+<li>ucfirst() - 把字符串中的首字符转换为大写。</li>
+<li>ucwords() - 把字符串中每个单词的首字符转换为大写。</li>
+<li>strtoupper() - 把字符串转换为大写。</li>
+<li>strtolower() - 把字符串转换为小写。</li>
+</ul>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">lcfirst(string)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo lcfirst(&quot;Hello world!&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hello world!</span><br></pre></td></tr></table></figure>
+
+<h3 id="levenshtein"><a href="#levenshtein" class="headerlink" title="levenshtein()"></a>levenshtein()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数返回两个字符串之间的 Levenshtein 距离。</span><br><span class="line">Levenshtein 距离，又称编辑距离，指的是两个字符串之间，由一个字符串转换成另一个字符串所需的最少编辑操作次数。许可的编辑操作包括将一个字符替换成另一个字符，插入一个字符，删除一个字符。</span><br></pre></td></tr></table></figure>
+
+<p>相关函数</p>
+<ul>
+<li>ucfirst() - 把字符串中的首字符转换为大写。</li>
+<li>ucwords() - 把字符串中每个单词的首字符转换为大写。</li>
+<li>strtoupper() - 把字符串转换为大写。</li>
+<li>strtolower() - 把字符串转换为小写。</li>
+</ul>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">levenshtein(string1,string2,insert,replace,delete)</span><br><span class="line">string1	必需。要比较的第一个字符串。</span><br><span class="line">string2	必需。要比较的第二个字符串。</span><br><span class="line">insert	可选。插入一个字符的代价。默认是 1。</span><br><span class="line">replace	可选。替换一个字符的代价。默认是 1。</span><br><span class="line">delete	可选。删除一个字符的代价。默认是 1。</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo levenshtein(&quot;Hello World&quot;,&quot;ello World&quot;);</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo levenshtein(&quot;Hello World&quot;,&quot;ello World&quot;,10,20,30);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1</span><br><span class="line">30</span><br></pre></td></tr></table></figure>
+
+<h3 id="localeconv"><a href="#localeconv" class="headerlink" title="localeconv()"></a>localeconv()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">函数返回一个包含本地数字及货币格式信息的数组。</span><br></pre></td></tr></table></figure>
+
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">localeconv(string1,string2,insert,replace,delete)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">setlocale(LC_ALL,&quot;US&quot;);</span><br><span class="line">$locale_info &#x3D; localeconv();</span><br><span class="line">print_r($locale_info);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array</span><br><span class="line">(</span><br><span class="line">    [decimal_point] &#x3D;&gt; .</span><br><span class="line">    [thousands_sep] &#x3D;&gt; </span><br><span class="line">    [int_curr_symbol] &#x3D;&gt; </span><br><span class="line">    [currency_symbol] &#x3D;&gt; </span><br><span class="line">    [mon_decimal_point] &#x3D;&gt; </span><br><span class="line">    [mon_thousands_sep] &#x3D;&gt; </span><br><span class="line">    [positive_sign] &#x3D;&gt; </span><br><span class="line">    [negative_sign] &#x3D;&gt; </span><br><span class="line">    [int_frac_digits] &#x3D;&gt; 127</span><br><span class="line">    [frac_digits] &#x3D;&gt; 127</span><br><span class="line">    [p_cs_precedes] &#x3D;&gt; 127</span><br><span class="line">    [p_sep_by_space] &#x3D;&gt; 127</span><br><span class="line">    [n_cs_precedes] &#x3D;&gt; 127</span><br><span class="line">    [n_sep_by_space] &#x3D;&gt; 127</span><br><span class="line">    [p_sign_posn] &#x3D;&gt; 127</span><br><span class="line">    [n_sign_posn] &#x3D;&gt; 127</span><br><span class="line">    [grouping] &#x3D;&gt; Array</span><br><span class="line">        (</span><br><span class="line">        )</span><br><span class="line">    [mon_grouping] &#x3D;&gt; Array</span><br><span class="line">        (</span><br><span class="line">        )</span><br><span class="line"></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="ltrim"><a href="#ltrim" class="headerlink" title="ltrim()"></a>ltrim()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ltrim() 函数移除字符串左侧的空白字符或其他预定义字符。</span><br></pre></td></tr></table></figure>
+
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ltrim(string,charlist)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$str &#x3D; &quot;Hello World!&quot;;</span><br><span class="line">echo $str . &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo ltrim($str,&quot;Hello&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hello World!</span><br><span class="line">World!</span><br></pre></td></tr></table></figure>
+
+<h3 id="md5"><a href="#md5" class="headerlink" title="md5()"></a>md5()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">md5() 函数计算字符串的 MD5 散列。</span><br></pre></td></tr></table></figure>
+
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">md5(string,raw)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">$str &#x3D; &quot;Hello&quot;; </span><br><span class="line">echo &quot;The string: &quot;.$str.&quot;&lt;br&gt;&quot;; </span><br><span class="line">echo &quot;TRUE - Raw 16 character binary format: &quot;.md5($str, TRUE).&quot;&lt;br&gt;&quot;; </span><br><span class="line">echo &quot;FALSE - 32 character hex number: &quot;.md5($str).&quot;&lt;br&gt;&quot;;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The string: Hello</span><br><span class="line">TRUE - Raw 16 character binary format: SÄa¨&#39;«øÄx×</span><br><span class="line">FALSE - 32 character hex number: 8b1a9953c4611296a827abf8c47804d7</span><br></pre></td></tr></table></figure>
+
+<h3 id="md5-file"><a href="#md5-file" class="headerlink" title="md5_file()"></a>md5_file()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">md5_file() 函数计算文件的 MD5 散列。</span><br></pre></td></tr></table></figure>
+
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">md5_file(file,raw)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">    $filename &#x3D; &quot;test.txt&quot;;</span><br><span class="line">    $md5file &#x3D; md5_file($filename);</span><br><span class="line">    echo $md5file;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">d41d8cd98f00b204e9800998ecf8427e</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="metaphone"><a href="#metaphone" class="headerlink" title="metaphone()"></a>metaphone()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">metaphone() 函数计算字符串的 metaphone 键。</span><br></pre></td></tr></table></figure>
+
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">metaphone(string,length)</span><br></pre></td></tr></table></figure>
+<p>注释和提示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">metaphone() 函数计算字符串的 metaphone 键。</span><br><span class="line">metaphone 键代表了字符串的英语发音。</span><br><span class="line">metaphone() 函数可用于拼写检查程序。</span><br><span class="line"></span><br><span class="line">注释：metaphone() 函数为发音相似的单词创建相同的键。</span><br><span class="line">注释：所生成的 metaphone 键长度可变。</span><br><span class="line">提示：metaphone() 比 soundex() 函数更精确，因为 metaphone() 了解英语发音的基本规则。</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo metaphone(&quot;World&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WRLT</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="money-format"><a href="#money-format" class="headerlink" title="money_format()"></a>money_format()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">money_format() 函数返回格式化为货币字符串的字符串。</span><br></pre></td></tr></table></figure>
+
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">money_format(string,number)</span><br></pre></td></tr></table></figure>
+
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$number &#x3D; 1234.56;</span><br><span class="line">setlocale(LC_MONETARY,&quot;en_US&quot;);</span><br><span class="line">echo money_format(&quot;The price is %i&quot;, $number);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">The price is USD 1,234.56</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="nl-langinfo"><a href="#nl-langinfo" class="headerlink" title="nl_langinfo()"></a>nl_langinfo()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nl_langinfo() 函数返回指定的本地信息。</span><br></pre></td></tr></table></figure>
+
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nl_langinfo(element)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="nl2br"><a href="#nl2br" class="headerlink" title="nl2br()"></a>nl2br()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nl2br() 函数在字符串中的每个新行（\n）之前插入 HTML 换行符（&lt;br&gt; 或 &lt;br &#x2F;&gt;）。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">nl2br(string,xhtml)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo nl2br(&quot;One line.\nAnother line.&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 上面代码的浏览器输出如下：</span><br><span class="line">One line.</span><br><span class="line">Another line.</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 上面代码的 HTML 输入如下（查看源代码）：</span><br><span class="line">One line.&lt;br &#x2F;&gt;</span><br><span class="line">Another line.</span><br></pre></td></tr></table></figure>
+
+<h3 id="number-format"><a href="#number-format" class="headerlink" title="number_format()"></a>number_format()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">number_format() 函数通过千位分组来格式化数字。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">number_format(number,decimals,decimalpoint,separator)</span><br><span class="line"></span><br><span class="line">number	必需。要格式化的数字。如果未设置其他参数，则数字会被格式化为不带小数点且以逗号（,）作为千位分隔符。</span><br><span class="line">decimals	可选。规定多少个小数。如果设置了该参数，则使用点号（.）作为小数点来格式化数字。</span><br><span class="line">decimalpoint	可选。规定用作小数点的字符串。</span><br><span class="line">separator	可选。规定用作千位分隔符的字符串。仅使用该参数的第一个字符。比如 &quot;xxx&quot; 仅输出 &quot;x&quot;。</span><br><span class="line"></span><br><span class="line">注释：如果设置了该参数，那么所有其他参数都是必需的。</span><br></pre></td></tr></table></figure>
+<p>注意</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：该函数支持一个、两个或四个参数（不是三个）。</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo number_format(&quot;1000000&quot;).&quot;&lt;br&gt;&quot;;</span><br><span class="line">echo number_format(&quot;1000000&quot;,2).&quot;&lt;br&gt;&quot;;</span><br><span class="line">echo number_format(&quot;1000000&quot;,2,&quot;,&quot;,&quot;.&quot;);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">1,000,000</span><br><span class="line">1,000,000.00</span><br><span class="line">1.000.000,00</span><br></pre></td></tr></table></figure>
+
+<h3 id="ord"><a href="#ord" class="headerlink" title="ord()"></a>ord()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ord() 函数返回字符串中第一个字符的 ASCII 值。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ord(string)</span><br></pre></td></tr></table></figure>
+
+
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">echo ord(&quot;h&quot;).&quot;&lt;br&gt;&quot;;</span><br><span class="line">echo ord(&quot;hello&quot;).&quot;&lt;br&gt;&quot;;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">104</span><br><span class="line">104</span><br></pre></td></tr></table></figure>
+
+<h3 id="parse-str"><a href="#parse-str" class="headerlink" title="parse_str()"></a>parse_str()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">parse_str() 函数把查询字符串解析到变量中。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">parse_str(string,array)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">parse_str(&quot;name&#x3D;Peter&amp;age&#x3D;43&quot;,$myArray);</span><br><span class="line">print_r($myArray);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Array ( </span><br><span class="line">    [name] &#x3D;&gt; Peter </span><br><span class="line">    [age] &#x3D;&gt; 43 </span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h3 id="print"><a href="#print" class="headerlink" title="print()"></a>print()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print() 函数输出一个或多个字符串。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">print(strings)</span><br></pre></td></tr></table></figure>
+<p>注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：print() 函数实际不是一个函数，所以您不必对它使用括号。</span><br><span class="line">提示：print() 函数比 echo() 速度稍慢。</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$str &#x3D; &quot;Hello world!&quot;;</span><br><span class="line">print $str;</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hello world!</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="printf"><a href="#printf" class="headerlink" title="printf()"></a>printf()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">printf() 函数输出格式化的字符串。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">printf(format,arg1,arg2,arg++)</span><br></pre></td></tr></table></figure>
+<p>注释</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">arg1、arg2、++ 参数将被插入到主字符串中的百分号（%）符号处。该函数是逐步执行的。在第一个 % 符号处，插入 arg1，在第二个 % 符号处，插入 arg2，依此类推。</span><br><span class="line"></span><br><span class="line">注释：如果 % 符号多于 arg 参数，则您必须使用占位符。占位符被插入到 % 符号之后，由数字和 &quot;\$&quot; 组成。请参见实例 2。</span><br><span class="line"></span><br><span class="line">提示：相关函数：sprintf()、 vprintf()、 vsprintf()、 fprintf() 和 vfprintf()</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$number &#x3D; 9;</span><br><span class="line">$str &#x3D; &quot;Beijing&quot;;</span><br><span class="line">printf(&quot;There are %u million bicycles in %s.&quot;,$number,$str);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">There are 9 million bicycles in Beijing.</span><br></pre></td></tr></table></figure>
+
+<h3 id="quoted-printable-decode"><a href="#quoted-printable-decode" class="headerlink" title="quoted_printable_decode()"></a>quoted_printable_decode()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quoted_printable_decode() 对经过 quoted-printable 编码后的字符串进行解码，返回 8 位的 ASCII 字符串</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quoted_printable_decode(string)</span><br></pre></td></tr></table></figure>
+<p>提示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">经过 quoted-printable 编码后的数据与通过邮件传输进行修改的不一样。一个完全 US-ASCII 的文本可进行 quoted-printable 编码，用来确保通过文字翻译或线包网关进行消息传递时数据的完整性。</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$str &#x3D; &quot;Hello&#x3D;0Aworld.&quot;;</span><br><span class="line">echo quoted_printable_decode($str);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">上面代码的浏览器输出如下：</span><br><span class="line">Hello world.</span><br><span class="line"></span><br><span class="line">上面代码的 HTML 输出如下（查看源代码）：</span><br><span class="line">Hello</span><br><span class="line">world.</span><br></pre></td></tr></table></figure>
+
+<h3 id="quoted-printable-encode"><a href="#quoted-printable-encode" class="headerlink" title="quoted_printable_encode()"></a>quoted_printable_encode()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quoted_printable_encode() 函数把 8 位字符串转换为 quoted-printable 字符串。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quoted_printable_encode(string)</span><br></pre></td></tr></table></figure>
+<p>提示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">经过 quoted-printable 编码后的数据与通过邮件传输进行修改的不一样。一个完全 US-ASCII 的文本可进行 quoted-printable 编码，用来确保通过文字翻译或线包网关进行消息传递时数据的完整性。</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="quotemeta"><a href="#quotemeta" class="headerlink" title="quotemeta()"></a>quotemeta()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quotemeta() 函数在字符串中某些预定义的字符前添加反斜杠。</span><br></pre></td></tr></table></figure>
+
+<p>预定义的字符：</p>
+<ul>
+<li>句号（.）</li>
+<li>反斜杠（\）</li>
+<li>加号（+）</li>
+<li>星号（*）</li>
+<li>问号（?）</li>
+<li>方括号（[]）</li>
+<li>脱字号（^）</li>
+<li>美元符号（$）</li>
+<li>圆括号（()）</li>
+</ul>
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">quotemeta(string)</span><br></pre></td></tr></table></figure>
+<p>提示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">该函数可用于转义拥有特殊意义的字符，比如 SQL 中的 ( )、[ ] 以及 * 。</span><br><span class="line">该函数是二进制安全的。</span><br></pre></td></tr></table></figure>
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$str &#x3D; &quot;Hello world. (can you hear me?)&quot;;</span><br><span class="line">echo quotemeta($str);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Hello world\. \(can you hear me\?\)</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="rtrim"><a href="#rtrim" class="headerlink" title="rtrim()"></a>rtrim()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rtrim() 函数移除字符串右侧的空白字符或其他预定义字符。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">rtrim(string,charlist)</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;?php</span><br><span class="line">$str &#x3D; &quot;Hello World! &quot;;</span><br><span class="line">echo &quot;Without rtrim: &quot; . $str;</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo &quot;With rtrim: &quot; . rtrim($str);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">上面代码的 HTML 输出如下（查看源代码）：</span><br><span class="line"></span><br><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">Without rtrim: Hello World! &lt;br&gt;With rtrim: Hello World!</span><br><span class="line">&lt;&#x2F;body&gt;</span><br><span class="line">&lt;&#x2F;html&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="setlocale"><a href="#setlocale" class="headerlink" title="setlocale()"></a>setlocale()</h3><p>作用</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setlocale() 函数设置地区信息（地域信息）。</span><br><span class="line">地区信息是针对一个地理区域的语言、货币、时间以及其他信息。</span><br></pre></td></tr></table></figure>
+
+<p>用法</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">setlocale(constant,location)</span><br></pre></td></tr></table></figure>
+
+<p>注释和提示</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">注释：setlocale() 函数仅针对当前脚本改变地区信息。</span><br><span class="line">提示：可以通过 setlocale(LC_ALL,NULL) 把地区信息设置为系统默认。</span><br><span class="line">提示：如需获取数字格式信息，请查看 localeconv() 函数。</span><br></pre></td></tr></table></figure>
+
+<p>案例</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#x2F;&#x2F; 设置地区为 US English，然后再设置回系统默认</span><br><span class="line">&lt;?php</span><br><span class="line">echo setlocale(LC_ALL,&quot;US&quot;);</span><br><span class="line">echo &quot;&lt;br&gt;&quot;;</span><br><span class="line">echo setlocale(LC_ALL,NULL);</span><br><span class="line">?&gt;</span><br></pre></td></tr></table></figure>
+<p>结果</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">English_United States.1252</span><br><span class="line">English_United States.1252</span><br></pre></td></tr></table></figure>
 
 <h3 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h3><blockquote>
 <p><a href="https://www.runoob.com/php/php-ref-string.html" target="_blank" rel="noopener">PHP 5 String 函数 | 菜鸟教程</a></p>
